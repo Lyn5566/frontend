@@ -67,7 +67,7 @@
          链接*n link
      列 客服 col support
          电话 tel
-    行 col
+    行 row
       常规链接 regular
          行 分类标题 row category
          行 链接组 row link-group
