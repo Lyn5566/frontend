@@ -1,0 +1,26 @@
+a[href]{
+    border:2px solid;
+    color: brown;
+}
+
+.a{
+    color: aquamarine;
+   
+}
+
+#app img{
+    border: 1px solid;
+
+}
+nav{
+    background: #eee;
+    padding: 10px;
+}
+#logo{
+    width: 100px;
+    height: 80;
+    border-radius: 50%;
+}
+a[href='#1']{
+    background-color: rgb(122, 45, 247);
+}
