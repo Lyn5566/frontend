@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS练习</title>
+    <style>
+        .a .c {
+            color: tomato;
+        }
+        .bordered{
+            border: 2px solid;
+        }
+        .a .c.bordered{
+            border: 1px tomato solid;
+        }
+        div{
+            padding: 10px;
+        }
+        #grandpa>div{
+            border: 2px solid #000;
+        }
+        ul>ol{
+            color: royalblue;
+        }
+        ol>li{
+            color: hotpink;
+        }
+        #me~span{
+            border: 2px solid green;
+        }
+        #parent>.elder{
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="a">A
+        <div class="b">B
+            <div class="c">C</div>
+            <div class="c">C</div>
+            <div class="c">C</div>
+        </div>
+    </div> -->
+    <div class="a bordered">A
+        <div class="b">B
+            <div class="c bordered">C</div>
+            <div class="c">C</div>
+            <div class="c">C</div>
+        </div>
+    </div>
+    <!-- 子选择器 -->
+    <div id="grandpa">
+        我是爷爷
+        <div>
+            我是爸爸
+            <div>
+                 我是儿子
+            </div>
+        </div>
+        <div>
+            我是爸爸
+            <div>
+                我是儿子
+            </div>
+        </div>
+    </div>
+    <ul>
+            <li>A</li>
+            <li>B</li>
+            <ol>
+              <li>C1</li>
+              <li>C2</li>
+              <li>C3</li>
+            </ol>
+          </ul>
+          
+          <ol>
+            <li>A</li>
+            <li>B</li>
+            <ul>
+              <li>C1</li>
+              <li>C2</li>
+              <li>C3</li>
+            </ul>
+          </ol>   
+
+          <span>哥哥</span>
+          <span id='me'>我</span>
+          <span>弟弟</span>
+          <span>弟弟</span>
+          <div id="parent">
+              <div class="elder">哥哥</div>
+              <div class="elder">哥哥</div>
+              <div id="me">我</div>
+              <div>弟弟</div>
+          </div>
+</body>
+
+</html>

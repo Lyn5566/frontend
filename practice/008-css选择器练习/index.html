@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择器</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        a,
+        p {
+            color: gray;
+        }
+
+        a,
+        button,
+        .btn {
+            border: 1px solid gray;
+            color: black;
+        }
+
+        .a,
+        .c {
+            border: black solid;
+        }
+
+        .b,
+        .c {
+            color: red;
+        }
+
+        .bordered {
+            background: pink;
+        }
+
+        .hightline {
+            border: 2px solid #000;
+        }
+
+        .bordered.hightline {
+            font-size: 200%;
+        }
+
+        a.red {
+            color: tomato;
+        }
+
+        footer span {
+            border: 1px solid #000;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <a href="#">我是链接</a>
+    <p>我是段落</p>
+
+    <a href="#">我是假按钮</a>
+    <button>我是真按钮</button>
+    <span class="btn">我有心做按钮</span>
+
+    <div class="a">A</div>
+    <div class="b">B</div>
+    <div class="c">C</div>
+
+    <p class="bordered">我是第一个段落</p>
+    <p class="hightline">我是第二个段落</p>
+    <p class="border hightline">我是第三个段落</p>
+
+    <a href="#">我是链接</a>
+    <a href="#" class="red">我是链接</a>
+    <span class="red">我是假链接</span>
+
+    <!-- 后代选择器 -->
+    <p>
+        <span>A</span>
+        <span>B</span>
+    </p>
+    <footer>
+        <span>C</span>
+        <span>D</span>
+    </footer>
+    
+</body>
+
+</html>
