@@ -1,24 +1,26 @@
 <style>
 *{
-
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-.row::after{
+.row:after{
     content: '';
     display: block;
     clear:both;
 }
 .col{
     float:left;
-    border: solid;
-    width:40%;
+    border:solid;
+    width:25%;
 }
-
+.col:first-child{
+    width:50%;
+}
 </style>
 
 <div class="row">
-    <div class="col">a</div>
-    <div class="col">b</div>
+    <div class="col">AA</div>
+    <div class="col">BB</div>
+    <div class="col">CC</div>
 </div>
