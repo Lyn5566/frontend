@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪类</title>
+    <style>
+        a:hover{
+            color: chartreuse;
+            border: 2px solid;
+        }
+        button:active{
+            border:2px solid #000;
+        }
+        input:focus{
+            border: 2px solid;
+        }
+        [type="checkbox"]:checked{
+            outline: 2px solid #000;
+        }
+        input:disabled{
+            outline: 2px solid #000;
+        }
+        input:enabled{
+            outline: 2px solid #000;
+        }
+        p:empty{
+            outline: 2px solid #000;
+        }
+        span:first-child{
+           outline: 2px solid #000;
+        }
+        span:last-child{
+            outline:2px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">Yo</a>
+    <button href="#">按钮</button>
+    <input type="text">
+    <input type="checkbox" checked>
+    <input>
+    <input disabled>
+    <input>
+    <input enabled>
+    <p>我有内容</p>
+    <p></p>
+    <!-- <div>
+        <span>老大</span>
+        <span>老二</span>
+        <span>三儿</span>
+    </div> -->
+    <span>老大</span>
+    <span>老二</span>
+    <span>三儿</span>
+</body>
+
+</html>
