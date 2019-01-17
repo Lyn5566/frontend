@@ -1,0 +1,32 @@
+<style>
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    .row::before,
+    .row:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .col {
+        float: left;
+        border: solid 1px rgba(255, 0, 0, .4);
+        padding: 20px;
+        background: rgba(255, 0, 0, .4);
+        width: 50%;
+
+    }
+</style>
+<div class="row">
+    <div class="col">
+        <div class="col">
+            <div class="col">CCC</div>
+            <div class="col">DDD</div>
+        </div>
+    </div>
+    <div class="col">DD</div>
+</div>
