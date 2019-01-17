@@ -1,0 +1,61 @@
+<style>
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.row::before,.row::after{
+        content:'';
+        display: block;
+        clear: both;
+}
+.col{
+    float: left;
+    border: solid;
+}
+.col-7{
+    width:29.16666666667%;
+}
+.col-8{
+    width:33.33333333333%;
+}
+.col-9{
+    width:37.5%;
+}
+.col-10{
+
+    width:41.666666667%;
+
+}
+.col-12{
+    width: 50%;
+}
+.col-14{
+
+    width:58.333333333%;
+}
+.col-16{
+    width:66.666666667%;
+}
+
+</style>
+
+<div class="row header">
+    <div class="col col-16">left</div>
+    <div class="col col-8">right</div>
+</div>
+<div class="row main">
+  <div class="row nav">
+      <div class="col col-7">LOGO</div>
+      <div class="col col-8">链接组</div>
+      <div class="col col-9">搜索</div>
+  </div>
+  <div class="row content">
+      <div class="col col-14">精选内容</div>
+      <div class="col col-10">推荐小组</div>
+  </div>
+</div>
+<div class="row footer">
+    <div class="col col-12">元信息</div>
+    <div class="col col-12">链接组</div>
+</div>
