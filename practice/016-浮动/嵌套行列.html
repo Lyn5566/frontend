@@ -1,0 +1,30 @@
+
+<style>
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.row::before,.row:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.col{
+    float: left;
+    background: rgba(255, 0, 0, .4);
+    border: solid 2px rgba(255, 0, 0, .4);
+    width: 50%;
+    padding: 20px;
+}
+</style>
+<div class="row">
+    <div class="col">
+        <div class="col">WW</div>
+        <div class="col">CC</div>
+    </div>
+    <div class="col">
+        <div class="col">WW</div>
+        <div class="col">CC</div>
+    </div>
+</div>
