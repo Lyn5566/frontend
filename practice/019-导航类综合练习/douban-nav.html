@@ -1,0 +1,68 @@
+<style>
+    *{
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+    }
+    body{
+        margin: 0;
+        font-size: 12px;
+    }
+    .right{
+        text-align: right;
+    }
+    .row::before,
+    .row::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .col{
+        float: left;
+    }
+    .col-8{
+        width: 33.33333333333%;
+    }
+    .col-16{
+        width: 66.66666666666%;
+    }
+    .nav{
+        background:gray;
+        color: #d5d5d5;
+        padding-left: 2px;
+        padding-right: 10px;
+    }
+    .nav a{
+        display: inline;
+        padding: .5em 1em;
+    }
+    a{
+        font-family: sans-serif;
+        color: inherit;
+        text-decoration: none;
+    }
+    .nav a:hover{
+        color: aliceblue;
+    }
+</style>
+
+<div class="row nav global">
+    <div class="col col-16">
+        <a href="#">豆瓣</a>
+        <a href="#">图书</a>
+        <a href="#">电影</a>
+        <a href="#">音乐</a>
+        <a href="#">同城</a>
+        <a href="#">小组</a>
+        <a href="#">阅读</a>
+        <a href="#">时间</a>
+        <a href="#">豆品</a>
+        <a href="#">更多</a>
+    </div>
+    <div class="col col-8 right">
+        <a href="#">下载豆瓣客户端</a>
+        <a href="#">登录</a>
+        <a href="#">注册</a>
+
+    </div>
+</div>
