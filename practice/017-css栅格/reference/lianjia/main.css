@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    padding: 20px;/*方便查看*/
+    text-align: center;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.rowlg {
+    background: rgba(35, 35, 35, 0.5);
+    margin-bottom: 25px;
+}
+
+.row {
+    border: 3px solid rgba(61, 22, 235, 0.8);
+    margin-bottom: 15px;
+}
+.app {
+    width: 30%;
+}
+
+.row::before ,
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.col {
+    float: left;
+    border: 3px solid rgba(51 ,51,51, 0.8);
+    margin: 0 15px;
+    padding: 15px;
+
+}
+
+.col-1 {
+    width: 4.16666666666666666%;
+}
+.col-2 {
+    width: 8.3333333333333333%;
+}
+.col-3 {
+    width: 12.5%;
+}
+.col-4 {
+    width: 16.6666666633333333%%;
+}
+.col-5 {
+    width: 20.8333333333333333333%;
+}
+.col-55 {
+    width: 22.91666666666666666%;
+}
+.col-6 {
+    width: 25%;
+}
+.col-7 {
+    width: 29.166666666666666666%;
+}
+.col-8 {
+    width: 33.3333333333333333333%;
+}
+.col-9 {
+    width: 37.499999999999999999%;
+}
+.col-10 {
+    width: 41.666666666666666666%;
+}
+.col-11 {
+    width: 45.8333333333333333%;
+}
+.col-111 {
+    width: 47.91666666666666666%;
+}
+.col-12 {
+    width: 50%;
+}
+
+.col-13 {
+    width: 54.1666666666666666666%;
+}
+
+.col-14 {
+    width: 58.3333333333333333%;
+}
+.col-15 {
+    width: 62.499999999999999%;
+}
+.col-16{
+    width: 66.666666666666666%;
+}
+.col-17 {
+    width: 70.833333333333%;
+}
+.col-18 {
+    width: 75%;
+}
+.col-19 {
+    width: 79.166666666666%;
+}
+.col-20 {
+    width: 83.3333333333333333%;
+}
+.col-21 {
+    width: 87.5%;
+}
+.col-22 {
+    width: 91.66666666666666666%;
+}
+.col-23 {
+    width: 95.8333333333333%
+}
+.col-24 {
+    width: 100%;
+}
