@@ -1,0 +1,170 @@
+<style>
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    body {
+
+        font-family: sans-serif;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .row::before,
+    .row::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .nav{
+        background:rgb(0, 162, 255);
+        color: aliceblue;
+        padding: 8px 0;
+
+    }
+    .nav a{
+        color:inherit;
+        font-size: 20px;
+    }
+    .nav form{
+        position: relative;
+        top:.2em;
+    }
+    .nav img{
+        float: left;
+        width: 50px;
+        height: 30px;
+        margin-right: 10px;
+        position: relative;
+        top:.2em;
+    }
+    .nav input,
+    form button{
+        vertical-align: top;
+        padding: .6em;
+    }
+    .nav input{
+        padding: .8em;
+        width: 68%;
+    }
+    .nav button{
+        color: inherit;
+        background: rgb(15, 11, 216);
+    }
+    form button
+    ,{
+
+        padding: .8em;
+        width:14%;
+        cursor: pointer;
+       
+    }
+    .nav input,
+    .nav button{
+        border:solid 1px rgb(15, 11, 216);
+        border-radius: 3px;
+        outline: 0;
+        
+    }
+    input:focus{
+        border:solid 1px lightskyblue;
+    }
+
+
+    
+    
+    a{
+        text-decoration: none;
+    }
+    .container{
+        max-width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .col {
+        float: left;
+    }
+    .col-5 {
+
+   width: 20.83333333333333%;
+    }
+    .col-6 {
+        width: 25%;
+    }
+
+    .col-8 {
+        width: 33.33333333333%;
+    }
+    .col-10{
+        width:41.666666666667%;
+    }
+    .col-12 {
+        width: 50%;
+    }
+    .col-16{
+    width:66.666666666666%;
+}
+
+    .col-18 {
+        width: 75%;
+    }
+    /* .center{
+        text-align: center;
+    } */
+
+    .center{
+        text-align: right;
+    }
+
+    .right{
+        float: right;
+    }
+    .form-top{
+
+        margin: 0;
+    }
+    .primary{
+        position: relative;
+        bottom: 2px;
+       padding-left: 20px;
+       padding-right: 20px;
+       border: 3px solid rgb(52, 63, 212);
+       font-size: 15px;
+       margin-right: 30px;
+       
+    
+      
+     
+    }
+ 
+</style>
+
+<div class="row nav">
+    <div class="container">
+        <div class="col col-4">
+            <a href="#">
+                <img src="./zhihu-logo.png">
+            </a>
+        </div>
+        <div class="col col-12">
+            <form class="col col-16 form-top">
+                <input type="text">
+                <button>按钮</button>
+            </form>
+            <div class="col col-8">
+                <a href="#">首页</a>
+                <a href="#">话题</a>
+                <a href="#">发现</a>
+            </div>
+        </div>
+        <div class="col col-8 right">
+          <button class="primary">提问</button>
+        
+            <a href="">注册知乎</a>
+            <a href="">登录</a>
+        </div>
+    </div>
+</div>

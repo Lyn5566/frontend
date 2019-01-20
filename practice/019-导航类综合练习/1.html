@@ -1,0 +1,177 @@
+<style>
+
+        * {
+            box-sizing: border-box;
+        }
+    
+        body {
+            margin: 0;
+            background: #eee;
+        }
+    
+        form {
+            margin: 0;
+        }
+    
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .row:before,
+        .row:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    
+        .col {
+            float: left;
+    
+            /* background: rgba(0, 0, 0, .2); */
+            /* border: 1px solid pink; */
+        }
+    
+        .col-1 {width: 8.333333333333333%;}
+        .col-2 {width: 16.66666666666666%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33333333333333%;}
+        .col-5 {width: 41.66666666666666%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33333333333333%;}
+        .col-8 {width: 66.66666666666666%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33333333333333%;}
+        .col-11 {width: 91.66666666666666%;}
+        .col-12 {width: 100%;}
+        
+        .container {
+            width: 70%;
+            margin: 0 auto;
+        }
+    
+        .text-right {
+            text-align: right;
+        }
+    
+    
+        .nav {
+            background: #fff;
+            /* border: 1px solid #ddd; */
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, .2);
+            z-index: 1;
+        }
+        
+        .nav .logo img {
+            position: relative;
+            top: -2px;
+            height: 28px;
+        }
+    
+        .nav a {
+            display: inline-block;
+            padding: 1em;
+            line-height: 28px;
+        }
+    
+        .nav form {
+            position: relative;
+            top: .5em;
+        }
+        
+        .nav input,
+        .nav button {
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            outline: 0;
+            border-radius: 3px;
+        }
+    
+        input:focus {
+            border: 1px solid #0084ff;
+        }
+    
+        .nav input {
+            padding: 1em;
+            margin-right: 1%;
+            width: 77%; 
+        }
+        .nav button {
+            padding: .8em;
+            width: 20%;
+        }
+        
+        .nav button.primary {
+            background: #0084ff;
+            color: #f2f9ff;
+            border: 1px solid #027aeb;
+            padding-right: 1.5em;
+            padding-left: 1.5em;        
+        }
+    
+        .nav .text-right a {
+            vertical-align: middle;
+        }
+        .nav .text-right a:nth-child(1) img {
+            width: 17px;
+        }
+        .nav .text-right a:nth-child(2) img {
+            width: 18px;
+        }
+        .nav .text-right a:nth-child(3) img {
+            width: 30px;
+        }
+        /* .nav .text-right .mine {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: pink;
+            border-radius: 50%;
+            margin: 1em;
+        }
+         */
+        
+    </style>
+    
+    
+    <div class="row nav">
+        <div class="row container">
+            <div class="col col-1 logo">
+                <a href="#">
+                    <img src="https://raw.githubusercontent.com/N1U/biao-class/master/pracitce/018-css/zhihuNav-float-grid/logo.png" alt="">
+                </a>
+            </div>
+    
+            <div class="col col-7">
+                <div class="col col-5 nav-group">
+                    <a href="#">首页</a>
+                    <a href="#">发现</a>
+                    <a href="#">话题</a>
+                </div>
+                <form class="col col-7 search">
+                    <input type="text" placeholder="如何评价王花花">
+                    <!--
+                         --><button class="primary">提问</button>
+                </form>
+            </div>
+    
+            <div class="col col-4 text-right">
+                <a href="#">
+                    <img src="https://raw.githubusercontent.com/N1U/biao-class/master/pracitce/018-css/zhihuNav-float-grid/notice.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="https://raw.githubusercontent.com/N1U/biao-class/master/pracitce/018-css/zhihuNav-float-grid/news.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="https://raw.githubusercontent.com/N1U/biao-class/master/pracitce/018-css/zhihuNav-float-grid/avatar.png" alt="">
+                </a>
+               
+            </div>
+        </div>
+    
+    </div>
+    
+    
+    
+    
+    </div>
