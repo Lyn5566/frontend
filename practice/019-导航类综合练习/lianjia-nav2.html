@@ -1,0 +1,139 @@
+<style>
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 13px;
+    }
+
+    .nav {
+        background: gray;
+        color: aliceblue;
+        padding: 5px 0;
+
+    }
+
+    #logo {
+        background: url(./lianjia-img1.png);
+        width: 100px;
+        height: 50px;
+        display: inline-block;
+        background-position: -1px -6px;
+    }
+
+    .icon-position {
+        background: url(./lianjia-img1.png);
+        width: 19px;
+        height: 20px;
+        display: inline-block;
+        background-position: -183px -11px;
+
+    }
+
+    .location {
+        display: inline-block;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        bottom: 14px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, .25);
+        padding: 0 10px;
+        text-align: center;
+        height: 27px;
+        line-height: 27px;
+        cursor: pointer;
+
+    }
+
+    .auth {
+        font-size: 90%;
+    }
+
+
+    .nav a {
+        display: inline-block;
+        color: inherit;
+        padding: .4em .4em;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .container {
+        max-width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .row::before,
+    .row::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .col {
+        float: left;
+
+    }
+
+    .col-6 {
+        width: 25%;
+    }
+
+    .col-18 {
+        width: 75%;
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    .head-icon {
+        display: inline-block;
+        width: 22px;
+        height: 23px;
+        background: url(./lianjia-img1.png);
+        background-position: -200px -13px;
+        cursor: pointer;
+
+    }
+</style>
+
+<div class="row nav">
+    <div class="container">
+        <div class="col col-6">
+            <div id="logo"></div>
+            <span class="location"><span class="icon-position"></span>北京</span>
+        </div>
+        <div class="col col-18 right">
+            <div class="auth">
+                <span class="head-icon"></span>
+                <a href="">登录</a>
+                <a href="">立即注册</a>
+            </div>
+            <div class="row">
+                <a href="">二手房</a>
+                <a href="">新房</a>
+                <a href="">租房</a>
+                <a href="">海外</a>
+                <a href="">小区</a>
+                <a href="">经纪人</a>
+                <a href="">指南</a>
+                <a href="">房价</a>
+                <a href="">工具</a>
+                <a href="">发布房源</a>
+                <a href="">企业汇</a>
+            </div>
+        </div>
+    </div>
+</div>
