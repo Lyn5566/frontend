@@ -1,0 +1,154 @@
+<style>
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    body {
+        font-family: sans-serif;
+    }
+
+    .container {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+    
+        
+    }
+
+    .row::before,
+    .row::after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+
+    .card {
+        background: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        padding: 5px;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .card .thumbnail {
+        position: relative;
+    }
+
+    .card .thumbnail .flag {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        background: #e53935;
+        width: 64px;
+        height: 20px;
+        margin-left: -32px;
+        line-height: 20px;
+        color: #fff;
+
+
+
+    }
+
+    .card .text {
+        text-align: center;
+    }
+
+    .card .text>* {
+        margin: 10px 0;
+    }
+
+    .text .title {
+        font-weight: bold;
+    }
+
+    .price .hot {
+        color: tomato;
+        font-weight: bold;
+    }
+
+    .muted {
+        opacity: .5;
+    }
+
+    .deleted {
+        text-decoration: line-through;
+    }
+
+    .col {
+        float: left;
+    
+    }
+
+    .col-8 {
+        width: 33.3333333333333333%;
+    }
+
+    img {
+        width: 400px;
+        height: 400px;
+
+    }
+</style>
+
+<div class="row">
+  <div class="container">
+        <div class="col col-8">
+                <div class="card">
+                    <div class="thumbnail">
+                        <a href="#">
+                            <img src="./xiaomi1.jpg">
+                        </a>
+                        <span class="flag">减200元</span>
+                    </div>
+                    <div class="text">
+                        <div class="title">小米8 青春版 4GB+64GB</div>
+                        <div class="muted">潮流镜面渐变色，2400万自拍旗舰</div>
+                        <div class="price">
+                            <span class="hot">1399元</span>
+                            <span class="muted deleted">1599元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-8">
+                <div class="card">
+                    <div class="thumbnail">
+                        <a href="#">
+                            <img src="./xiaomi1.jpg">
+                        </a>
+                        <span class="flag">减200元</span>
+                    </div>
+                    <div class="text">
+                        <div class="title">小米8 青春版 4GB+64GB</div>
+                        <div class="muted">潮流镜面渐变色，2400万自拍旗舰</div>
+                        <div class="price">
+                            <span class="hot">1399元</span>
+                            <span class="muted deleted">1599元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-8">
+                <div class="card">
+                    <div class="thumbnail">
+                        <a href="#">
+                            <img src="./xiaomi1.jpg">
+                        </a>
+                        <span class="flag">减200元</span>
+                    </div>
+                    <div class="text">
+                        <div class="title">小米8 青春版 4GB+64GB</div>
+                        <div class="muted">潮流镜面渐变色，2400万自拍旗舰</div>
+                        <div class="price">
+                            <span class="hot">1399元</span>
+                            <span class="muted deleted">1599元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  </div>
+</div>
