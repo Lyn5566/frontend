@@ -1,0 +1,188 @@
+<style>
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+
+    }
+
+    body {
+        font-family: sans-serif;
+        font-size: 16px;
+        margin: 10px;
+    }
+
+    .container {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card {
+        background: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        margin: 20px;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .card .text>* {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .row::before,
+    .row::after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+   
+
+    .card .thumbnail {
+        position: relative;
+    }
+
+    .card .thumbnail .flag {
+        position: absolute;
+        left: 0;
+        margin-top: -40px;
+        background: #555;
+        color: #fff;
+    }
+
+    .card .text .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .other {
+        padding-left: 20px;
+    }
+    
+
+    .col {
+        float: left;
+    }
+
+    .col-8 {
+        width: 33.333333333333333%;
+    }
+
+    .col-16 {
+        width: 66.666666666666666%;
+    }
+    .right{
+        text-align: right;
+    }
+    .left,.main-title{
+        padding-left: 20px;
+    }
+    .main-row{
+        max-width: 1200px;
+    }
+
+    .mute {
+        opacity: .5;
+    }
+
+    img {
+        width: 260px;
+        height: 180px;
+    }
+
+    .desc,
+    .other {
+        font-size: 80%;
+    }
+    
+</style>
+<div class="row">
+    <div class="container">
+        <h1 class="main-title">二手好房，为你而选</h1>
+        <div class="main-row">
+            <div class="col col-16 mute left">好房源那么多，我们为你精选，链家网会越来越懂你</div>
+            <div class="col col-8 right">
+                <a href="">更多北京二手房</a>
+            </div>
+        </div>
+        <div class="col col-6">
+            <div class="card">
+                <div class="thumbnail">
+                    <a href="">
+                        <img src="./lianjia2-1.jpg" alt="">
+                    </a>
+                    <span class="flag">695万</span>
+                </div>
+                <div class="text">
+                    <div class="title">万科紫苑 南北通透全能小三</div>
+                    <div class="desc mute">
+                        <span>万科紫苑</span>
+                        <span>三室两厅</span>
+                        <span>95.22平米</span>
+                    </div>
+                </div>
+            </div>
+            <div class="other mute">与万科紫苑相似的小区内热门房源</div>
+        </div>
+        <div class="col col-6">
+            <div class="card">
+                <div class="thumbnail">
+                    <a href="">
+                        <img src="./lianjia2-1.jpg" alt="">
+                    </a>
+                    <span class="flag">695万</span>
+                </div>
+                <div class="text">
+                    <div class="title">万科紫苑 南北通透全能小三</div>
+                    <div class="desc mute">
+                        <span>万科紫苑</span>
+                        <span>三室两厅</span>
+                        <span>95.22平米</span>
+                    </div>
+                </div>
+            </div>
+            <div class="other mute">与万科紫苑相似的小区内热门房源</div>
+        </div>
+        <div class="col col-6">
+            <div class="card">
+                <div class="thumbnail">
+                    <a href="">
+                        <img src="./lianjia2-1.jpg" alt="">
+                    </a>
+                    <span class="flag">695万</span>
+                </div>
+                <div class="text">
+                    <div class="title">万科紫苑 南北通透全能小三</div>
+                    <div class="desc mute">
+                        <span>万科紫苑</span>
+                        <span>三室两厅</span>
+                        <span>95.22平米</span>
+                    </div>
+                </div>
+            </div>
+            <div class="other mute">与万科紫苑相似的小区内热门房源</div>
+        </div>
+        <div class="col col-6">
+            <div class="card">
+                <div class="thumbnail">
+                    <a href="">
+                        <img src="./lianjia2-1.jpg" alt="">
+                    </a>
+                    <span class="flag">695万</span>
+                </div>
+                <div class="text">
+                    <div class="title">万科紫苑 南北通透全能小三</div>
+                    <div class="desc mute">
+                        <span>万科紫苑</span>
+                        <span>三室两厅</span>
+                        <span>95.22平米</span>
+                    </div>
+                </div>
+            </div>
+            <div class="other mute">与万科紫苑相似的小区内热门房源</div>
+        </div>
+    </div>
+</div>
