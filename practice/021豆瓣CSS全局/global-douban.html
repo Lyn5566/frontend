@@ -1,0 +1,593 @@
+<style>
+    *{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #545652;
+    line-height: 1.6;
+}
+body,form{
+    margin: 0;
+}
+.container{
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row::before,
+.row::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.text-right{
+   text-align: right;
+}
+.row{
+    margin-left: -5px;
+    margin-right: -5px;
+}
+.col{
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+h1{
+    margin: 30px 0;
+}
+.nav.global{
+    background: #545652;
+    color: #d5d5d5;
+    padding: 3px;
+    
+}
+.nav.global a{
+
+    color:inherit;
+    padding: 4px 10px;
+    font-size: 90%;
+    display: inline-block;
+}
+.nav.global a:hover{
+    color:ivory;
+}
+
+.ft-link a:hover{
+    content: none;
+    background: #666;;
+    color:ivory;
+}
+a{
+    color: #545652;
+    text-decoration: none;
+}
+.page{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background:#f0f6f3;
+
+}
+.logo a,
+.link-group a{
+    color: #037b82;
+}
+
+.logo a{
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+    padding-top:10px;
+    padding-bottom: 5px;
+}
+.link-group{
+    padding: 5px 0;
+    
+}
+.link-group a{
+    font-size: 15px;
+    padding: 15px 10px;
+    display: inline-block;
+}
+.link-group,
+.position a:hover{
+    
+    color: #065155;
+}
+.nav.page .search{
+    
+    position: relative;
+    margin-top: 17px;
+}
+.nav.page .search input{
+    width: 80%;
+
+}
+.search input,
+.search button{
+    padding:5px 10px;
+    outline: 0;
+    border: solid 1px rgba(0,0,0,.15);
+}
+
+.nav.page .search button{
+    position: absolute;
+    top:0px;
+    right:70px;
+    background:transparent;
+    border: none;
+    color: #ccc;
+    
+   
+    
+}
+.search button{
+    
+}
+
+.activity .like{
+    color:#ca6445;
+    background:#fae9da;
+    display: inline-block;
+    width: 7%;
+    height: 50px;
+    text-align: center;
+    padding: 5px 10px;
+      
+}
+.rec,.preview{
+    border-bottom: 1px solid #ddd;
+    
+}
+
+.rec,.activity{
+    padding-bottom: 20px;
+}
+
+
+.preview >*{
+    margin: 10px 5px;
+}
+
+.preview .desc{
+    margin:10px 5px;
+    background: #f9f9f9;
+    color: #999;
+    padding: 10px;
+    display: inline-block;
+
+}
+.preview .title{
+    font-size: 15px;
+    color: #259;
+   
+}
+.preview .from{
+   color: #545652;
+}
+.position a{
+    color: #545652;
+}
+.from .time{
+
+    margin-left: 10px;
+}
+.rec .down{
+    padding-top: 10px;
+}
+h2{
+    color: #666;
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0;
+}
+.rec{
+    
+    padding: 10px 20px 10px 0;
+}
+.footer .container{
+    border-top: 1px dashed #ddd;
+    padding-top: 10px;
+}
+.ft-link span::before{
+    content: '・';
+}
+
+    .col-1 {
+        width: 4.166666666666667%;
+    }
+
+    .col-2 {
+        width: 8.333333333333333%;
+    }
+
+    .col-3 {
+        width: 12.5%
+    }
+
+    .col-4 {
+        width: 16.66666666666668%;
+    }
+
+    .col-5 {
+
+        width: 20.83333333333333%;
+    }
+
+    .col-6 {
+        width: 25%;
+    }
+
+    .col-7 {
+        width: 29.16666666667%;
+    }
+
+    .col-8 {
+        width: 33.33333333333%;
+    }
+
+    .col-9 {
+
+        width: 37.5%;
+    }
+
+    .col-10 {
+        width: 41.666666667%;
+    }
+
+    .col-11 {
+        width: 45.833333333%;
+    }
+
+    .col-12 {
+        width: 50%;
+    }
+
+    .col-13 {
+        width: 54.166666667%;
+    }
+
+    .col-14 {
+        width: 58.333333333%;
+    }
+
+    .col-16 {
+        width: 66.666666667%;
+    }
+    .col-17{
+        width: 70.833333333%;
+    }
+    .col-18{
+        width:75%;
+    }
+    .col-19{
+        width:79.1666666667%;
+    }
+    .col-20{
+        width:83.3333333333%;
+    }
+    .col-21{
+        width:87.5%;
+    }
+    .col-22{
+        width:91.6666666667%;
+    }
+    .col-23{
+        width:95.8333333333%;
+    }
+    .col-24{
+        width:100%;
+    }
+
+</style>
+<div class=" nav global">
+    <div class="row">
+        <div class="col col-16">
+            <a href="#">豆瓣</a>
+            <a href="#">读书</a>
+            <a href="#">电影</a>
+            <a href="#">音乐</a>
+            <a href="#">同城</a>
+            <a href="#">小组</a>
+            <a href="#">阅读</a>
+            <a href="#">更多</a>
+            <a href="#">FM</a>
+            <a href="#">时间</a>
+            <a href="#">豆品</a>
+        </div>
+        <div class="col col-8 text-right">
+            <a href="#">下载客户端</a>
+            <a href="#">登录</a>
+            <a href="#">注册</a>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="row nav page">
+        <div class="container">
+            <div class="col col-4 logo">
+                <a href="#">豆瓣小组</a>
+            </div>
+            <div class="col col-12 link-group">
+                <a href="#">精选</a>
+                <a href="#">行摄</a>
+                <a href="#">娱乐</a>
+                <a href="#">时尚</a>
+                <a href="#">生活</a>
+                <a href="#">科技</a>
+                <a href="#">文化</a>
+            </div>
+            <form class="col col-8 search">
+                <input type="text">
+                <button type="submit">搜</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <h1 class="choice">讨论精选</h1>
+            <div class="row">
+                <div class="col col-17">
+                    <div class="row activity">
+                        <div class="col col-3 like">
+                            <div>159</div>
+                            <div>喜欢</div>
+                        </div>
+                        <div class="col col-21 preview">
+                            <a href="" class="title">
+                                为什么读博有可能是浪费时间
+                            </a>
+                            <div class="desc">
+                                <div class="col col-3">
+                                    <img src="https://dummyimage.com/60x60">
+                                </div>
+                                <div class="col col-21">这其实是经济学人的一篇2016年的文章标题Why doing a PhD is often a waste of time：
+                                    The disposable academic.文章有几个论据： 1）大学现在有过剩的博士生，博士生给大学带来了很多成果，毕竟“ PhD students are
+                                    cheap...</div>
+                            </div>
+                            <div class="from">
+                                <span class="position">
+                                    来自<a href="#">哈哈哈哈哈哈哈哈哈哈哈小组</a>
+                                </span>
+                                <span class="time">01-18</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row activity">
+                        <div class="col col-3 like">
+                            <div>159</div>
+                            <div>喜欢</div>
+                        </div>
+                        <div class="col col-21 preview">
+                            <a href="" class="title">
+                                为什么读博有可能是浪费时间
+                            </a>
+                            <div class="desc">
+                                <div class="col col-3">
+                                    <img src="https://dummyimage.com/60x60">
+                                </div>
+                                <div class="col col-21">这其实是经济学人的一篇2016年的文章标题Why doing a PhD is often a waste of time：
+                                    The disposable academic.文章有几个论据： 1）大学现在有过剩的博士生，博士生给大学带来了很多成果，毕竟“ PhD students are
+                                    cheap...</div>
+                            </div>
+                            <div class="from">
+                                <span class="position">
+                                    来自<a href="#">哈哈哈哈哈哈哈哈哈哈哈小组</a>
+                                </span>
+                                <span class="time">01-18</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row activity">
+                        <div class="col col-3 like">
+                            <div>159</div>
+                            <div>喜欢</div>
+                        </div>
+                        <div class="col col-21 preview">
+                            <a href="" class="title">
+                                为什么读博有可能是浪费时间
+                            </a>
+                            <div class="desc">
+                                <div class="col col-3">
+                                    <img src="https://dummyimage.com/60x60">
+                                </div>
+                                <div class="col col-21">这其实是经济学人的一篇2016年的文章标题Why doing a PhD is often a waste of time：
+                                    The disposable academic.文章有几个论据： 1）大学现在有过剩的博士生，博士生给大学带来了很多成果，毕竟“ PhD students are
+                                    cheap...</div>
+                            </div>
+                            <div class="from">
+                                <span class="position">
+                                    来自<a href="#">哈哈哈哈哈哈哈哈哈哈哈小组</a>
+                                </span>
+                                <span class="time">01-18</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row activity">
+                        <div class="col col-3 like">
+                            <div>159</div>
+                            <div>喜欢</div>
+                        </div>
+                        <div class="col col-21 preview">
+                            <a href="" class="title">
+                                为什么读博有可能是浪费时间
+                            </a>
+                            <div class="desc">
+                                <div class="col col-3">
+                                    <img src="https://dummyimage.com/60x60">
+                                </div>
+                                <div class="col col-21">这其实是经济学人的一篇2016年的文章标题Why doing a PhD is often a waste of time：
+                                    The disposable academic.文章有几个论据： 1）大学现在有过剩的博士生，博士生给大学带来了很多成果，毕竟“ PhD students are
+                                    cheap...</div>
+                            </div>
+                            <div class="from">
+                                <span class="position">
+                                    来自<a href="#">哈哈哈哈哈哈哈哈哈哈哈小组</a>
+                                </span>
+                                <span class="time">01-18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-7">
+                    <h2>值得加入的小组</h2>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rec">
+                        <div class="col col-6">
+                            <a href="">
+                                <img src="./douban2.jpg">
+                            </a>
+                        </div>
+                        <div class="col col-18 ">
+                            <a href="" class="up">北京兼职</a>
+                            <div class="row down">
+                                <span>38409个成员</span>
+                                <a href="">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row footer">
+    <div class="container">
+        <div class="col col-12">
+            © 2005－2019 douban.com, all rights reserved 北京豆网科技有限公司
+        </div>
+        <div class="col col-12 text-right ft-link">
+            <a href="">关于豆瓣</a>
+            <span></span>
+            <a href="">在豆瓣工作</a>
+            <span></span>
+            <a href="">联系我们</a>
+            <span></span>
+            <a href="">免责声明</a>
+            <span></span>
+            <a href="">帮助中心</a>
+            <span></span>
+            <a href="">移动应用</a>
+            <span></span>
+            <a href="">豆瓣广告</a>
+        </div>
+    </div>
+</div>
