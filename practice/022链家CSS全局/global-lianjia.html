@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>链家全局</title>
+    <style>
+        *{
+                box-sizing: border-box;
+            }
+            body{
+                font-family: sans-serif;
+                font-size: 13px;
+                overflow: auto;
+                line-height: 1.6;
+            }
+            .first-screen{
+                background: #666;
+                color: #fff;
+                background-image: url(./lianjia-firstscreen.jpg);
+            }
+            body,form{
+                margin: 0;
+               
+            }
+            img{
+                max-width: 100%;
+            }
+            button.primary,
+            .download .btn
+                {
+                color: #fff;
+                background: #00ae66;
+
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            .text-right{
+                text-align: right;
+            }
+            .container{
+                overflow: auto;
+                max-width: 1150px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .input-group{
+                border-radius: 0;
+                border-right: 0;
+            }
+            .row::before,
+            .row::after{
+                content: '';
+                clear: both;
+                display: block;
+            }
+            .col{
+                float: left;
+            }
+            .nav{
+                
+                margin-top: 20px;     
+            }
+            .nav a{
+                color:inherit;
+                display: inline-block;
+                padding: 2px 5px;
+            }
+            .nav .auth{
+                font-size: 90%;
+                font-weight:100;
+            }
+            
+            #logo{
+                display: inline-block;
+                background-image: url(./lianjia-sprite.png);
+                width: 141px;
+                height: 55px;
+                background-position: 10px -376px;
+            }
+            .nav .locale{
+                display: inline-block;
+                border-radius: 25px;
+                padding: 2px 5px;
+                font-size: 12px;
+                font-weight: lighter;
+                background: rgba(0,0,0,.1);
+        
+        
+            }
+            .nav .locale-icon{
+                display: inline-block;
+                width: 11px;
+                height: 18px;
+                background-image: url(./lianjia-sprite.png);
+                background-position: -189px -16px;
+                
+               
+            }
+            .locale > *{
+                vertical-align: top;
+            }
+            .left > *{
+                vertical-align: middle;
+            }
+            .centered{
+                text-align: center;
+                margin-top: 70px;
+            }
+            #heading{
+                margin-bottom: 50px;
+                line-height: 1;
+            }
+            #heading h1{
+                margin: 0;
+                font-size: 50px;
+                margin-bottom: 30px;
+        
+            }
+            #heading .sub-title{
+                font-size: 20px;
+                font-weight: lighter;
+                margin-bottom: 50px;
+            }
+            #search{
+                max-width: 700px;
+                text-align: left;
+                font-size: 0px;  /* 清除一个空格的大小*/
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 80px;      
+                
+            }
+            #search input{
+              width: 85%;
+              height: 50px;
+              padding-left: 15px;
+              font-size: 13px;
+            }
+        
+            #search button{
+                width: 15%;  
+                font-size: 16px;
+                padding-top: 12px;
+                padding-bottom: 14px;
+                /* background: #00ae66; */
+                color: #fff;              
+                     
+            }
+             input,button{   
+                border: none;
+                outline: none;               
+            }
+            .input-group > *{
+                border-radius: 0;
+                border-right: 0;
+            }
+            .input-group > *:first-child{
+                border-radius: 3px 0 0 3px;
+            }
+                
+            .input-group > *:last-child{
+                border-radius: 0 3px 3px 0;
+                border-right: 1px;
+            }
+            #search .cat-group{
+                margin-bottom: 10px;
+                color: rgba(204, 204, 204, 0.9);        
+            }
+           
+            #search .cat-group .cat{
+               
+                display: inline-block;
+                padding: 5px 10px;
+                font-size: 15px;
+            }
+            .cat-group span{
+                text-shadow: 1px 0 5px rgba(0,0,0,.2);
+            }
+
+            .cat-group .active,
+            .statement a:hover{
+                cursor: pointer;
+                color: #fff;
+            }
+
+         
+            .statement{
+                margin-bottom: 30px;
+            }
+            .statement a{
+                color: rgba(204, 204, 204, 0.9);
+                padding: 10px;
+                
+            }
+            .statement a:hover{
+                font-weight: 200;
+            }
+            #search .pointer{
+                position: relative;
+                top:2px;
+                left:35px;
+                 width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 10px 10px 10px;
+                border-color: transparent transparent #ffffff transparent;
+            }
+               
+            .col-1 {
+                width: 4.166666666666666%;
+            }
+        
+            .col-2 {
+                width: 8.333333333333333%;
+            }
+        
+            .col-3 {
+                width: 12.5%
+            }
+        
+            .col-4 {
+                width: 16.666666666666666%;
+            }
+        
+            .col-5 {
+        
+                width: 20.833333333333333%;
+            }
+        
+            .col-6 {
+                width: 25%;
+            }
+        
+            .col-7 {
+                width: 29.166666666666666%;
+            }
+        
+            .col-8 {
+                width: 33.333333333333333%;
+            }
+        
+            .col-9 {
+        
+                width: 37.5%;
+            }
+        
+            .col-10 {
+                width: 41.666666666666666%;
+            }
+        
+            .col-11 {
+                width: 45.833333333333333%;
+            }
+        
+            .col-12 {
+                width: 50%;
+            }
+        
+            .col-13 {
+                width: 54.166666666666666%;
+            }
+        
+            .col-14 {
+                width: 58.333333333333333%;
+            }
+        
+            .col-16 {
+                width: 66.666666666666666%;
+            }
+            .col-17{
+                width: 70.833333333333333%;
+            }
+            .col-18{
+                width:75%;
+            }
+            .col-19{
+                width:79.1666666666666666%;
+            }
+            .col-20{
+                width:83.3333333333333333%;
+            }
+            .col-21{
+                width:87.5%;
+            }
+            .col-22{
+                width:91.6666666666666666%;
+            }
+            .col-23{
+                width:95.8333333333333333%;
+            }
+            .col-24{
+                width:100%;
+            }
+
+            .support{
+
+                padding: 30px 0;
+                text-align: center;
+        
+               
+            }
+            .support .thumbnail img{
+
+                width: 60px;
+                height: 60px;
+                       
+            }
+            .support .text .title{
+                font-size: 18px;
+                font-weight: 500;
+                margin: 10px 0;
+            }
+
+            .support .text .desc{
+                font-size: 13px;
+                color: #b0b3b4;
+             
+            }
+            .main .popularize{
+                background-image: url(./lianjia-appbg.jpg);
+                margin: 30px 0;
+                
+            }
+            .popularize .title{
+                font-size: 80px;
+                font-weight: bold;
+                
+            }
+            .popularize .sub-title{
+
+                font-size: 40px;
+                font-weight: lighter;
+                padding-top: 100px;
+                line-height: 0;
+             
+            }
+            .popularize .desc{
+              width: 40%;
+              padding: 10px 5px;
+              line-height: 1.8;
+              margin-bottom: 20px;
+            }
+            .app{
+                padding-bottom: 40px;
+                display: inline-block;
+            }
+
+            .app .download{
+                width: 150px;
+                height: 140px;
+                text-align: center;
+               font-size: 15px;
+               display: inline-block;
+               margin-right: 20px;
+              
+            } 
+            .download .btn{
+                margin: 20px 20px;
+                width: 130px;
+                height: 50px;
+                padding-top: 12px;
+                border-radius: 3px;
+                
+                
+            }
+            .app .qr-code img{
+                position: relative;
+                top:18px;
+                width: 130px;
+                height: 122px;
+               display: inline-block;
+               vertical-align: middle;
+               border: 0;
+                             
+            }
+            .head {
+                max-width: 1100px;
+            }
+            .head .title{
+                font-size: 30px;
+            }
+            .head .title>*:first-child{
+    
+                font-weight: bold;
+            }
+            .head .title>*:last-child{
+                font-weight: lighter;
+            
+            }
+            .head .desc {
+                font-size: 15px;
+                padding-bottom: 30px;
+            }
+            .head .desc > *:first-child{
+                color: #b0b3b4;    
+            }
+            .head .desc > *:last-child{
+                float: right;
+            }
+           .preview .card{
+               
+               text-align: center;   
+               margin-right: 50px;
+               box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+               -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+               -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+           }
+           
+           .card .title{
+               font-size: 15px;
+               padding: 10px 0;
+           }
+           .card .desc,
+           .preview .other{
+               color: #b0b3b4;
+           }
+           .preview .other{
+               text-align: left;
+               padding-top: 10px;
+        
+           }
+           .card .thumbnail{
+               position: relative;
+           }
+
+           .card .flag{
+               position: absolute;
+               left:0;
+               bottom:20px;
+               background: #333;
+               color: #fff;
+               padding: 3px;
+           }
+           .card .thumbnail img{
+               width: 250px;
+               height: 192px;
+           }
+           .green{
+
+               background-image: url(./green-line.jpg);
+               height: 240px;
+           }
+           .green .text-img{
+            background-image: url(./lianjia-sprite.png);
+            background-image: url(./lianjia-sprite.png);
+            width: 613px;
+            height: 134px;
+            background-position: 67px -241px;
+            margin-top: 40px;
+           }
+
+           .green .slogan-right{
+               margin-top: 44px;
+           }
+           .green .slogan-right .text{
+               color: #fff;
+               font-size: 16px;
+               display: inline-block;
+               padding: 5px;
+               margin-bottom: 15px;
+           }
+           .slogan-right input,
+           .slogan-right button
+           {
+               line-height: 30px;
+               height: 30px;
+               
+           }
+           .slogan-right .search{
+               font-size: 0;
+               margin: 0 auto;
+           }
+           .slogan-right button{
+               margin: 0;
+           }
+           .slogan-right input{
+               width: 80%;
+               font-size: 13px;
+               padding-left: 5px;
+           }
+           .footer{
+               background-image: url(./footer-bg.jpg);
+               color: #888c8e;;
+           }
+           .ft-up .ft-link a{
+               display: inline-block;
+               padding: 20px 5px;
+           }
+           .ft-up .tel{
+               color: aqua;
+               margin-top: 20px;
+               display: inline-block;
+           }
+           .ft-up{
+    
+               margin-bottom: 15px;
+               padding-bottom: 10px;
+           }
+
+           .ft-mid{
+               border-top: 1px solid #393939;
+               border-bottom: 1px solid #393939;
+               margin: 20px 0; 
+               background: none;  
+               
+           }
+           .ft-mid .ft-list span,
+           .ft-mid .ft-option span{
+               display:inline-block;
+               padding: 10px;
+               cursor: pointer;
+           }
+           .ft-mid .ft-list span.hover{
+               background: #121212;
+               color: #fff;
+           }
+
+           .ft-mid .ft-option span{
+               padding-bottom: 15px;
+               display: inline-block;
+           }
+           .ft-down{
+               margin-bottom: 80px;
+               padding-top: 10px;
+           }
+           
+            
+        
+        </style>
+</head>
+
+<body>
+
+    <div class="first-screen">
+        <div class="container">
+            <div class="row nav">
+                <div class="col col-8 left">
+                    <a href="" id="logo"></a>
+                    <span class="locale">
+                        <span class="locale-icon"></span>
+                        <span class="">北京</span>
+                    </span>
+                </div>
+                <div class="col col-16">
+                    <div class="row auth text-right">
+                        <a href="">登录</a>
+                        <a href="">立即注册</a>
+                    </div>
+                    <div class="link-group text-right">
+                        <a href="">二手房</a>
+                        <a href="">新房</a>
+                        <a href="">租房</a>
+                        <a href="">海外</a>
+                        <a href="">小区</a>
+                        <a href="">经纪人</a>
+                        <a href="">指南</a>
+                        <a href="">房价</a>
+                        <a href="">工具</a>
+                        <a href="">发布房源</a>
+                        <a href="">企业汇</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row centered">
+                <div id="heading">
+                    <h1>连接每个家的故事</h1>
+                    <div class="sub-title">北京链家在售房</div>
+                </div>
+                <div id="search">
+                    <div class="cat-group">
+                        <span class="cat active">找二手房</span>
+                        <span class="cat">找新房</span>
+                        <span class="cat">找租房</span>
+                        <span class="cat">找小区</span>
+                        <span class="cat">搜问答</span>
+                    </div>
+                    <div class="pointer"></div>
+                    <form class="search-box input-group">
+                        <input type="text" placeholder="请输入区域，小区名开始找房">
+                        <button class="primary" type="submit">开始找房</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row statement">
+                <a href="">关于仿冒我公司进行不正当竞争行为的郑重声明</a>
+                <a href="">房地产中介诚信服务承诺及保证书</a>
+                <a href="">致广大用户</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="row">
+            <div class="container">
+                <div class="col col-8 support">
+                    <div class="thumbnail">
+                        <img src="./lianjia-shortcut1.png">
+                    </div>
+                    <div class="text">
+                        <div class="title">找二手房</div>
+                        <div class="desc">
+                            <div>真实二手房源，链家承诺真实在售</div>
+                            <div>所见即真</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-8 support">
+                    <div class="thumbnail">
+                        <img src="./lianjia-shortcut2.png">
+                    </div>
+                    <div class="text">
+                        <div class="title">地图找房</div>
+                        <div class="desc">
+                            <div>真实二手房源，链家承诺真实在售</div>
+                            <div>一览无余</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-8 support">
+                    <div class="thumbnail">
+                        <img src="./lianjia-shortcut3.png">
+                    </div>
+                    <div class="text">
+                        <div class="title">房屋评估</div>
+                        <div class="desc">
+                            <div>真实二手房源，链家承诺真实在售</div>
+                            <div>预估市值</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row popularize">
+            <div class="container">
+                <div class="sub-title">一链倾城</div>
+                <div class="title">为你为家</div>
+                <div class="desc">
+
+                    集二手、新房、租房功能于一体，随时随地任性找房。IM匿名咨询让您放心，消息动态推送让您省心，服务承诺让您安心，数据百科锦囊让您感受贴心漫漫找房路，我们努力为您想更多
+                </div>
+                <div class="row app">
+                    <div class="col col-14 download">
+                        <div class="btn"><a href="#">iphone</a></div>
+                        <div class="btn"><a href="#">android</a></div>
+                    </div>
+                    <span class="col col-10 qr-code">
+                        <img src="https://ajax.api.lianjia.com/qr/getDownloadQr?location=site_middle&ljweb_channel_key=site_index">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row old-house">
+            <div class="container">
+                <div class="row head">
+                    <div class="row title">
+                        <span>二手好房</span>
+                        <span>为你而选</span>
+                    </div>
+                    <div class="row desc">
+                        <span>好房源那么多，我们为你精选，链家网会越来越懂你</span>
+                        <span><a href="">更多北京二手房</a></span>
+                    </div>
+                </div>
+                <div class="row card-group">
+                    <div class="col col-6 preview">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img src="./ershou1.jpg">
+                                <span class="flag">695万</span>
+                            </div>
+                            <div class="title">万科紫苑 南北通透全能小三</div>
+                            <div class="desc">万科紫苑 三室两厅 95.22平</div>
+                        </div>
+                        <div class="other">与万科紫苑相似的小区内热门房源</div>
+
+                    </div>
+                    <div class="col col-6 preview">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img src="./ershou1.jpg">
+                                <span class="flag">695万</span>
+                            </div>
+                            <div class="title">万科紫苑 南北通透全能小三</div>
+                            <div class="desc">万科紫苑 三室两厅 95.22平</div>
+                        </div>
+                        <div class="other">与万科紫苑相似的小区内热门房源</div>
+
+                    </div>
+                    <div class="col col-6 preview">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img src="./ershou1.jpg">
+                                <span class="flag">695万</span>
+                            </div>
+                            <div class="title">万科紫苑 南北通透全能小三</div>
+                            <div class="desc">万科紫苑 三室两厅 95.22平</div>
+                        </div>
+                        <div class="other">与万科紫苑相似的小区内热门房源</div>
+
+                    </div>
+                    <div class="col col-6 preview">
+                        <div class="card">
+                            <div class="thumbnail">
+                                <img src="./ershou1.jpg">
+                                <span class="flag">695万</span>
+                            </div>
+                            <div class="title">万科紫苑 南北通透全能小三</div>
+                            <div class="desc">万科紫苑 三室两厅 95.22平</div>
+                        </div>
+                        <div class="other">与万科紫苑相似的小区内热门房源</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row space"></div>
+    <div class="row new-house"></div>
+    <div class="green">
+        <div class="container">
+            <div class="col col-14 slogan-left">
+                <!-- <div>链家真实房源</div>
+                <div>不是嘴上说说就可以</div> -->
+                <div class="text-img"></div>
+            </div>
+            <div class="col col-10 slogan-right">
+                <div class="text">
+                    <div>真实存在，真实在售，真实价格，真实图片！</div>
+                    <div>链家郑重向用户承诺：真实房源，假一赔百元</div>
+                </div>
+                <form class="search">
+                    <input type="text" placeholder="请输入链家编号查询真伪...">
+                    <button type="submit">搜</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row footer">
+        <div class="container">
+            <div class="row ft-up">
+                <div class="col col-14">
+                    <div class="row ft-link">
+                        <a href="">关于链家</a>
+                        <a href="">联系我们</a>
+                        <a href="">加入我们</a>
+                        <a href="">隐私声明</a>
+                        <a href="">网站地图</a>
+                        <a href="">友情链接</a>
+                    </div>
+                </div>
+                <div class="col col-10 text-right">
+                    <span class="tel">官方客服 1010 9666</span>
+                </div>
+            </div>
+            <div class="row ft-mid">
+                <div class="row ft-list">
+                    <span class="hover">城市二手房</span>
+                    <span>城市租房</span>
+                    <span>热门小区</span>
+                    <span>城市二手房推荐</span>
+                    <span>新房</span>
+                    <span>推荐新房</span>
+                    <span>合作与友情链接</span>
+                </div>
+                <div class="row ft-option">
+                    <span>北京新房</span>
+                    <span>长春新房</span>
+                    <span>沈阳新房</span>
+                    <span>厦门新房</span>
+                    <span>福州新房</span>
+                    <span>杭州新房</span>
+                    <span>上海新房</span>
+                    <span>武汉新房</span>
+                    <span>青岛新房</span>
+                    <span>烟台新房</span>
+                </div>
+            </div>
+            <div class="row ft-down">
+                <div>链家网（北京）科技有限公司 | 网络经营许可证 京ICP备16057509号-2 | © Copyright©2010-2019 链家网Lianjia.com版权所有</div>
+                <a href="">京公网安备 11010802024019号</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
