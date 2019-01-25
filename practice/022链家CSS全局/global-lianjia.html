@@ -2,11 +2,17 @@
 <html lang="en">
 
 <head>
+    <style media="screen and (max-width:1080px)">
+        .col{
+            width:100%;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>链家全局</title>
     <style>
+
         *{
                 box-sizing: border-box;
             }
@@ -384,15 +390,15 @@
             .head .title{
                 font-size: 30px;
             }
-            .head .title>*:first-child{
+            .head .title > *:first-child{
     
                 font-weight: bold;
             }
-            .head .title>*:last-child{
+            .head .title > *:last-child{
                 font-weight: lighter;
             
             }
-            .head .desc {
+            .head .desc{
                 font-size: 15px;
                 padding-bottom: 30px;
             }
@@ -401,6 +407,9 @@
             }
             .head .desc > *:last-child{
                 float: right;
+            }
+            .head .desc a{
+                color: #000;
             }
            .preview .card{
                
@@ -440,6 +449,91 @@
                width: 250px;
                height: 192px;
            }
+           .xiaoqu-card img,
+           .new-card img{
+               width: 340px;
+               height: 200px;
+           }
+
+           .xiaoqu{
+               margin: 60px 0;
+               padding: 30px 0;
+               background: #eeeef1;
+               
+           }
+           .xiaoqu-card{
+               max-width: 340px;
+               border-radius: 3px;
+               box-shadow: 0 1 5px rgba(0, 0, 0, .2);
+               -moz-box-shadow: 0 1 5px rgba(0, 0, 0, .2);
+               -webkit-box-shadow: 0 1 5px rgba(0, 0, 0, .2);
+               background: #fff;
+           }
+
+           .xiaoqu-card .xiaoqu-text{
+                padding: 15px;
+                max-width: 340px;
+                
+           }
+           .xiaoqu-card .xiaoqu-text .title
+           {
+               font-size: 20px;
+               font-weight: bold;
+           }
+           .xiaoqu-card .xiaoqu-text .price{
+               font-size: 15px;
+
+           }
+        .xiaoqu-text .desc .created{
+              color: #b0b3b4;
+              float: right;
+              
+           }
+           .new-house{
+               margin-bottom: 50px;
+           }
+           .new-card{
+               position: relative;
+               display:inline-block;
+
+               
+           }
+           .new-card .sale{
+               position: absolute;
+               top:180px;
+               background:navajowhite;
+               font-weight: bold;
+               font-size: 16px;
+               padding: 6px;
+               
+           }
+           .new-card img{
+               height: 250px;
+           }
+           .new-card .other{
+               position: absolute;
+               top: 90px;
+               left: 120px;
+           }
+           .new-card .other{
+               
+               font-size: 18px;
+               text-align: center;
+               
+           }
+           .new-card .other > *:first-child{
+               color: #fff;
+               font-weight: bold;
+           }
+           .new-card .other .money{
+               font-weight: bold;
+           }
+           .new-card .other .down{
+               color: gold;
+           }
+           
+
+
            .green{
 
                background-image: url(./green-line.jpg);
@@ -510,7 +604,7 @@
                
            }
            .ft-mid .ft-list span,
-           .ft-mid .ft-option span{
+           .ft-mid .ft-option a{
                display:inline-block;
                padding: 10px;
                cursor: pointer;
@@ -519,8 +613,11 @@
                background: #121212;
                color: #fff;
            }
+           .ft-list{
+               margin: 10px 0;
+           }
 
-           .ft-mid .ft-option span{
+           .ft-mid .ft-option a{
                padding-bottom: 15px;
                display: inline-block;
            }
@@ -569,7 +666,7 @@
             <div class="row centered">
                 <div id="heading">
                     <h1>连接每个家的故事</h1>
-                    <div class="sub-title">北京链家在售房</div>
+                    <div class="sub-title">北京链家在售房仅剩一套</div>
                 </div>
                 <div id="search">
                     <div class="cat-group">
@@ -717,14 +814,135 @@
                 </div>
             </div>
         </div>
+        <div class="row xiaoqu">
+            <div class="container">
+                <div class="row head">
+                    <div class="row title">
+                        <span>小区</span>
+                        <span>为您推荐</span>
+                    </div>
+                    <div class="row desc">
+                        <span>纵览小区，恋上这座城</span>
+                        <span><a href="#">更多北京小区</a></span>
+                    </div>
+                </div>
+                <div class="row card-group">
+                    <div class="col col-8">
+                        <div class="xiaoqu-card">
+                            <a href="">
+                                <div class="row img">
+                                    <img src="./xiaoqu1.jpg">
+                                </div>
+                                <div class="xiaoqu-text">
+                                    <div class="title">鸳鸯戏水</div>
+                                    <div class="desc">
+                                        <span class="price">65876/平</span>
+                                        <span class="created">2003年</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-8">
+                        <div class="xiaoqu-card">
+                            <a href="">
+                                <div class="row img">
+                                    <img src="./xiaoqu2.jpg">
+                                </div>
+                                <div class="xiaoqu-text">
+                                    <div class="title">鸳鸯戏水</div>
+                                    <div class="desc">
+                                        <span class="price">65876/平</span>
+                                        <span class="created">2003年</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-8">
+                        <div class="xiaoqu-card">
+                            <a href="">
+                                <div class="row img">
+                                    <img src="./xiaoqu3.jpg">
+                                </div>
+                                <div class="xiaoqu-text">
+                                    <div class="title">鸳鸯戏水</div>
+                                    <div class="desc">
+                                        <span class="price">65876/平</span>
+                                        <span class="created">2003年</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row new-house">
+            <div class="container">
+                <div class="row head">
+                    <div class="title">
+                        <span>新房</span>
+                        <span>新起航</span>
+                    </div>
+                    <div class="desc">
+                        <span>真实信息准确同步，楼盘动态一手掌握</span>
+                        <span><a href="#">更多北京新房</a></span>
+                    </div>
+                </div>
+                <div class="row card-group">
+                    <div class="col col-8">
+                        <div class="new-card">
+                            <a href="">
+                                <img src="./new-house1.jpg">
+                                <div class="other">
+                                    <div>颐璟万和</div>
+                                    <div class="down">
+                                        <span class="money">76000</span>
+                                        <span class="">元/平</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-8">
+                        <div class="new-card">
+                            <a href="">
+                                <img src="./new-house2.jpg">
+                                <div class="other">
+                                    <div>朝青知筑</div>
+                                    <div class="down">
+                                        <span class="money">76000</span>
+                                        <span class="">元/平</span>
+                                    </div>
+                                </div>
+                                <div class="sale">全款9.2折 贷款9.4折</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-8">
+                        <div class="new-card">
+                            <a href="">
+                                <img src="./new-house3.jpg">
+                                <div class="other">
+                                    <div>利锦府府尚</div>
+                                    <div class="down">
+                                        <span class="money">76000</span>
+                                        <span class="">元/平</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row space"></div>
-    <div class="row new-house"></div>
     <div class="green">
         <div class="container">
             <div class="col col-14 slogan-left">
-                <!-- <div>链家真实房源</div>
-                <div>不是嘴上说说就可以</div> -->
                 <div class="text-img"></div>
             </div>
             <div class="col col-10 slogan-right">
@@ -768,16 +986,16 @@
                     <span>合作与友情链接</span>
                 </div>
                 <div class="row ft-option">
-                    <span>北京新房</span>
-                    <span>长春新房</span>
-                    <span>沈阳新房</span>
-                    <span>厦门新房</span>
-                    <span>福州新房</span>
-                    <span>杭州新房</span>
-                    <span>上海新房</span>
-                    <span>武汉新房</span>
-                    <span>青岛新房</span>
-                    <span>烟台新房</span>
+                    <a herf="">北京新房</a>
+                    <a herf="">长春新房</a>
+                    <a herf="">沈阳新房</a>
+                    <a herf="">厦门新房</a>
+                    <a herf="">福州新房</a>
+                    <a herf="">杭州新房</a>
+                    <a herf="">上海新房</a>
+                    <a herf="">武汉新房</a>
+                    <a herf="">青岛新房</a>
+                    <a herf="">烟台新房</a>
                 </div>
             </div>
             <div class="row ft-down">
