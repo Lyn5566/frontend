@@ -1,0 +1,614 @@
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    font-size: 13px;
+    overflow: auto;
+    line-height: 1.6;
+}
+.first-screen{
+    background: #666;
+    color: #fff;
+    background-image: url(../lianjia-firstscreen.jpg);
+}
+body,form{
+    margin: 0;
+   
+}
+img{
+    max-width: 100%;
+}
+button.primary,
+.download .btn
+    {
+    color: #fff;
+    background: #00ae66;
+
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.text-right{
+    text-align: right;
+}
+.container{
+    overflow: auto;
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-group{
+    border-radius: 0;
+    border-right: 0;
+}
+.row::before,
+.row::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.col{
+    float: left;
+}
+.nav{
+    
+    margin-top: 20px;     
+}
+.nav a{
+    color:inherit;
+    display: inline-block;
+    padding: 2px 5px;
+}
+.nav .auth{
+    font-size: 90%;
+    font-weight:100;
+}
+
+#logo{
+    display: inline-block;
+    background-image: url(../lianjia-sprite.png);
+    width: 141px;
+    height: 55px;
+    background-position: 10px -376px;
+}
+.nav .locale{
+    display: inline-block;
+    border-radius: 25px;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: lighter;
+    background: rgba(0,0,0,.1);
+
+
+}
+.nav .locale-icon{
+    display: inline-block;
+    width: 11px;
+    height: 18px;
+    background-image: url(../lianjia-sprite.png);
+    background-position: -189px -16px;
+    
+   
+}
+.locale > *{
+    vertical-align: top;
+}
+.left > *{
+    vertical-align: middle;
+}
+.centered{
+    text-align: center;
+    margin-top: 70px;
+}
+#heading{
+    margin-bottom: 50px;
+    line-height: 1;
+}
+#heading h1{
+    margin: 0;
+    font-size: 50px;
+    margin-bottom: 30px;
+
+}
+#heading .sub-title{
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 50px;
+}
+#search{
+    max-width: 700px;
+    text-align: left;
+    font-size: 0px;  /* 清除一个空格的大小*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;      
+    
+}
+#search input{
+  width: 85%;
+  height: 50px;
+  padding-left: 15px;
+  font-size: 13px;
+}
+
+#search button{
+    width: 15%;  
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 14px;
+    /* background: #00ae66; */
+    color: #fff;              
+         
+}
+ input,button{   
+    border: none;
+    outline: none;               
+}
+.input-group > *{
+    border-radius: 0;
+    border-right: 0;
+}
+.input-group > *:first-child{
+    border-radius: 3px 0 0 3px;
+}
+    
+.input-group > *:last-child{
+    border-radius: 0 3px 3px 0;
+    border-right: 1px;
+}
+#search .cat-group{
+    margin-bottom: 10px;
+    color: rgba(204, 204, 204, 0.9);        
+}
+
+#search .cat-group .cat{
+   
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+.cat-group span{
+    text-shadow: 1px 0 5px rgba(0,0,0,.2);
+}
+
+.cat-group .active,
+.statement a:hover{
+    cursor: pointer;
+    color: #fff;
+}
+
+
+.statement{
+    margin-bottom: 30px;
+}
+.statement a{
+    color: rgba(204, 204, 204, 0.9);
+    padding: 10px;
+    
+}
+.statement a:hover{
+    font-weight: 200;
+}
+#search .pointer{
+    position: relative;
+    top:2px;
+    left:35px;
+     width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #ffffff transparent;
+}
+   
+.col-1 {
+    width: 4.166666666666666%;
+}
+
+.col-2 {
+    width: 8.333333333333333%;
+}
+
+.col-3 {
+    width: 12.5%
+}
+
+.col-4 {
+    width: 16.666666666666666%;
+}
+
+.col-5 {
+
+    width: 20.833333333333333%;
+}
+
+.col-6 {
+    width: 25%;
+}
+
+.col-7 {
+    width: 29.166666666666666%;
+}
+
+.col-8 {
+    width: 33.333333333333333%;
+}
+
+.col-9 {
+
+    width: 37.5%;
+}
+
+.col-10 {
+    width: 41.666666666666666%;
+}
+
+.col-11 {
+    width: 45.833333333333333%;
+}
+
+.col-12 {
+    width: 50%;
+}
+
+.col-13 {
+    width: 54.166666666666666%;
+}
+
+.col-14 {
+    width: 58.333333333333333%;
+}
+
+.col-16 {
+    width: 66.666666666666666%;
+}
+.col-17{
+    width: 70.833333333333333%;
+}
+.col-18{
+    width:75%;
+}
+.col-19{
+    width:79.1666666666666666%;
+}
+.col-20{
+    width:83.3333333333333333%;
+}
+.col-21{
+    width:87.5%;
+}
+.col-22{
+    width:91.6666666666666666%;
+}
+.col-23{
+    width:95.8333333333333333%;
+}
+.col-24{
+    width:100%;
+}
+
+.support{
+
+    padding: 30px 0;
+    text-align: center;
+
+   
+}
+.support .thumbnail img{
+
+    width: 60px;
+    height: 60px;
+           
+}
+.support .text .title{
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.support .text .desc{
+    font-size: 13px;
+    color: #b0b3b4;
+ 
+}
+.main .popularize{
+    background-image: url(../lianjia-appbg.jpg);
+    margin: 30px 0;
+    
+}
+.popularize .title{
+    font-size: 80px;
+    font-weight: bold;
+    
+}
+.popularize .sub-title{
+
+    font-size: 40px;
+    font-weight: lighter;
+    padding-top: 100px;
+    line-height: 0;
+ 
+}
+.popularize .desc{
+  width: 40%;
+  padding: 10px 5px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.app{
+    padding-bottom: 40px;
+    display: inline-block;
+}
+
+.app .download{
+    width: 150px;
+    height: 140px;
+    text-align: center;
+   font-size: 15px;
+   display: inline-block;
+   margin-right: 20px;
+  
+} 
+.download .btn{
+    margin: 20px 20px;
+    width: 130px;
+    height: 50px;
+    padding-top: 12px;
+    border-radius: 3px;
+    
+    
+}
+.app .qr-code img{
+    position: relative;
+    top:18px;
+    width: 130px;
+    height: 122px;
+   display: inline-block;
+   vertical-align: middle;
+   border: 0;
+                 
+}
+.head {
+    max-width: 1100px;
+}
+.head .title{
+    font-size: 30px;
+}
+.head .title > *:first-child{
+
+    font-weight: bold;
+}
+.head .title > *:last-child{
+    font-weight: lighter;
+
+}
+.head .desc{
+    font-size: 15px;
+    padding-bottom: 30px;
+}
+.head .desc > *:first-child{
+    color: #b0b3b4;    
+}
+.head .desc > *:last-child{
+    float: right;
+}
+.head .desc a{
+    color: #000;
+}
+.preview .card{
+   
+   text-align: center;   
+   margin-right: 50px;
+   box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+}
+
+.card .title{
+   font-size: 15px;
+   padding: 10px 0;
+}
+.card .desc,
+.preview .other{
+   color: #b0b3b4;
+}
+.preview .other{
+   text-align: left;
+   padding-top: 10px;
+
+}
+.card .thumbnail{
+   position: relative;
+}
+
+.card .flag{
+   position: absolute;
+   left:0;
+   bottom:20px;
+   background: #333;
+   color: #fff;
+   padding: 3px;
+}
+.card .thumbnail img{
+   width: 250px;
+   height: 192px;
+}
+.xiaoqu-card img,
+.new-card img{
+   width: 340px;
+   height: 200px;
+}
+
+.xiaoqu{
+   margin: 60px 0;
+   padding: 30px 0;
+   background: #eeeef1;
+   
+}
+.xiaoqu-card{
+   max-width: 340px;
+   border-radius: 3px;
+   box-shadow: 0 1 5px rgba(0, 0, 0, .2);
+   -moz-box-shadow: 0 1 5px rgba(0, 0, 0, .2);
+   -webkit-box-shadow: 0 1 5px rgba(0, 0, 0, .2);
+   background: #fff;
+}
+
+.xiaoqu-card .xiaoqu-text{
+    padding: 15px;
+    max-width: 340px;
+    
+}
+.xiaoqu-card .xiaoqu-text .title
+{
+   font-size: 20px;
+   font-weight: bold;
+}
+.xiaoqu-card .xiaoqu-text .price{
+   font-size: 15px;
+
+}
+.xiaoqu-text .desc .created{
+  color: #b0b3b4;
+  float: right;
+  
+}
+.new-house{
+   margin-bottom: 50px;
+}
+.new-card{
+   position: relative;
+   display:inline-block;
+
+   
+}
+.new-card .sale{
+   position: absolute;
+   top:180px;
+   background:navajowhite;
+   font-weight: bold;
+   font-size: 16px;
+   padding: 6px;
+   
+}
+.new-card img{
+   height: 250px;
+}
+.new-card .other{
+   position: absolute;
+   top: 90px;
+   left: 120px;
+}
+.new-card .other{
+   
+   font-size: 18px;
+   text-align: center;
+   
+}
+.new-card .other > *:first-child{
+   color: #fff;
+   font-weight: bold;
+}
+.new-card .other .money{
+   font-weight: bold;
+}
+.new-card .other .down{
+   color: gold;
+}
+
+
+
+.green{
+
+   background-image: url(../green-line.jpg);
+   height: 240px;
+}
+.green .text-img{
+background-image: url(../lianjia-sprite.png);
+background-image: url(../lianjia-sprite.png);
+width: 613px;
+height: 134px;
+background-position: 67px -241px;
+margin-top: 40px;
+}
+
+.green .slogan-right{
+   margin-top: 44px;
+}
+.green .slogan-right .text{
+   color: #fff;
+   font-size: 16px;
+   display: inline-block;
+   padding: 5px;
+   margin-bottom: 15px;
+}
+.slogan-right input,
+.slogan-right button
+{
+   line-height: 30px;
+   height: 30px;
+   
+}
+.slogan-right .search{
+   font-size: 0;
+   margin: 0 auto;
+}
+.slogan-right button{
+   margin: 0;
+}
+.slogan-right input{
+   width: 80%;
+   font-size: 13px;
+   padding-left: 5px;
+}
+.footer{
+   background-image: url(../footer-bg.jpg);
+   color: #888c8e;;
+}
+.ft-up .ft-link a{
+   display: inline-block;
+   padding: 20px 5px;
+}
+.ft-up .tel{
+   color: aqua;
+   margin-top: 20px;
+   display: inline-block;
+}
+.ft-up{
+
+   margin-bottom: 15px;
+   padding-bottom: 10px;
+}
+
+.ft-mid{
+   border-top: 1px solid #393939;
+   border-bottom: 1px solid #393939;
+   margin: 20px 0; 
+   background: none;  
+   
+}
+.ft-mid .ft-list span,
+.ft-mid .ft-option a{
+   display:inline-block;
+   padding: 10px;
+   cursor: pointer;
+}
+.ft-mid .ft-list span.hover{
+   background: #121212;
+   color: #fff;
+}
+.ft-list{
+   margin: 10px 0;
+}
+
+.ft-mid .ft-option a{
+   padding-bottom: 15px;
+   display: inline-block;
+}
+.ft-down{
+   margin-bottom: 80px;
+   padding-top: 10px;
+}
