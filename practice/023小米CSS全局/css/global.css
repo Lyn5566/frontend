@@ -142,7 +142,10 @@ img{
     line-height: 2;
     padding: 5px 10px;
 }
-
+.icon i{
+    font-size: 14px;
+    padding-right: 10px;
+}
 
 .logo{
    position: relative;
@@ -217,12 +220,13 @@ img{
     background: rgba(0,0,0,.7);
     padding-top: 20px;
     padding-bottom: 20px;
+    width: 234px;
     
 
  }
  .slider .link-group a{
     display: block;
-    padding: 10px;
+    padding: 10px 20px;
     color: #fff;
     
  }
@@ -243,7 +247,7 @@ img{
  }
  .navigator .prev{ 
     
-    left: 0px;
+    left: 19px;
     background-position: 82px 0px;
 
  }
@@ -252,6 +256,67 @@ img{
     background-position: 54px 0px;
 
 }
+/* --------- 快捷通道 ---------- */
+.header-card img{
+    width: 316px;
+    
+}
+.header-card{
+    margin-top: 20px;
+}
+
+.card-group > *{
+    margin-right: 10px;
+    padding-left: 10px;
+}
+.header-card .container .shortcut,
+.header-card .container .cardgroup{
+    margin-right: 16px;
+    padding-left: 15px;
+}
+.card-group .card3{
+    /* padding-left: 15px; */
+    margin-right: 0;
+    
+}
+
+.shortcut
+
+{
+    background: #5f5750;
+    font-size: 12px;
+    text-align: center;
+    width: 234px;
+    padding-top: 10px;
+    color: #fff;
+    
+}
+.shortcut .up .col,
+.shortcut .down .col{
+    width: 65px;
+    height: 82px;
+    box-shadow: #b0b0b0;
+    
+}
+
+.shortcut a{
+    display: inline-block;
+    padding: 10px 0;
+    
+}
+.shortcut i{
+    padding-left:5px; 
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
