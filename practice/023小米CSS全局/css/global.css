@@ -186,13 +186,15 @@ img{
    
 }
 .search .input-box{
-      font-size: 0;  
+      font-size: 0;
+    
 }
     input{
     padding: 12px 20px;
     border: 1px solid rgba(0, 0, 0, .2);
     outline: none;
     color: #444;
+    width: 170px;
     
 }
 .rec-group{
