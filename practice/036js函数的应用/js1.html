@@ -1,0 +1,20 @@
+<script>
+    let list = ['a1', 'a2', ['b1', 'b2', ['c1', 'c2', 'c3'], 'b3'], 'a3'];
+    function lister(arr,level=1,filtered={}){
+        for(let i=0;i<arr.length;i++){
+            let it =arr[i];
+            if(typeof it ==='string'){
+                if(typeof filtered[level]!=='object'){
+                    filtered[level]=[];
+                }
+                filtered[level].push(it);
+            }else{
+                lister(it,level+1,filtered);
+            }
+        }
+        return filtered;
+    }
+    let obj = lister(list);
+    console.log(obj);
+
+</script>
