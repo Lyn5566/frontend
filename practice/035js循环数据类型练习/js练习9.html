@@ -1,0 +1,34 @@
+<script>
+let list =[
+  {
+    name: '王花花',
+    salary: 100,
+  },
+  {
+    name: '李拴蛋',
+    salary: 200,
+  },
+  {
+    name: '牛备备',
+    salary: 300,
+  },
+];
+let list1 =[];
+
+for(let i=0;i<list.length;i++){
+    let user = list[i];
+    if(user.salary<=100){
+        continue;
+    }
+    list1.push(user);
+}
+
+
+for(let j=0;j<list.length;j++){
+    let user1 = list[j]
+    if(user1.salary>100){
+        list1.push(user1);
+    }
+}
+console.log(list1);
+</script>

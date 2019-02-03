@@ -1,0 +1,30 @@
+<script>
+
+    let list = ['a1', 'a2', ['b1', 'b2', ['c1', 'c2', 'c3'], 'b3'], 'a3'];
+    let sum1='';
+    let sum2='';
+    let sum3='';
+    for(let i =0;i<list.length;i++){
+        let it1 = list[i];
+        if(typeof it1 == 'string'){
+            sum1 +=it1 + ' ';
+        }else{
+            for(let j = 0;j<it1.length;j++){
+                let it2 = it1[j];
+                if(typeof it2 == 'string'){
+                    sum2 +=it2 + ' ';
+                }else{
+                    for(let k = 0;k<it2.length;k++){
+                        let it3 = it2[k];
+                        sum3 +=it3 + ' ';
+                    }
+                }
+            }
+        }
+    }
+    console.log(sum1);
+    console.log(sum2);
+    console.log(sum3);
+
+
+</script>
