@@ -1,0 +1,34 @@
+<script>
+
+function eachNumber(arr,fn){
+
+    for(let i=0;i<arr.length;i++){
+        fn(arr[i]);
+    }
+}
+
+function oddNumber(arr){
+    let result=[];
+    eachNumber(arr,(it) =>{
+        if(it%2) return;
+        
+        result.push(it);
+    })
+    return result;
+}
+
+
+function evenNumber(arr){
+    let result=[];
+    eachNumber(arr,(it) =>{
+        if(!(it%2)) return;
+        result.push(it);
+    })
+    return result;
+}
+
+let oddList = oddNumber([1,2,3,4]);
+let evenList = evenNumber([2,3,4,5]);
+console.log(oddList);
+console.log(evenList);
+</script>
