@@ -1,0 +1,74 @@
+<script>
+let list = [
+  '王花花',
+  '刘备备',
+  '李拴蛋',
+  '赵可爽',
+];
+
+// function printer(arr,breaker){
+//     for(let i=0;i<arr.length;i++){
+//         if(breaker==arr[i]){
+//             break;
+//         }
+//         console.log(arr[i]);
+       
+//     }
+// }
+// function printer2(arr,continuer){
+//     for(let i=0;i<arr.length;i++){
+//         if(continuer==arr[i]){
+//             continue;
+//         }
+//         console.log(arr[i]);
+//     }
+// }
+// printer(list,'李拴蛋');
+// printer2(list,'李拴蛋');
+
+// function glue(arr){
+//     let result='';
+//     for(let i=0;i<arr.length;i++){
+//         result+=arr[i];
+
+//     }
+//     console.log(result);
+//     return result;
+    
+// }
+// glue(list);
+function glue(arr,mark){
+    let result = '';
+    for(let i =0;i<arr.length;i++){
+        if(i === arr.length-1){
+            mark=' '; 
+        }
+        result += arr[i]+mark;
+    }
+    console.log(result);
+    return result;
+    
+}
+
+//     function glue(arr, connector) {
+//   // 初始化result
+//   let result = '';
+
+//   // 因为arr.length要用两次，所以将其存为一个变量，使用起来更紧凑
+//   //let length = arr.length;
+
+//   for (let i = 0; i < arr.length; i++) {
+
+//     // 如果循环到最后一个元素了，就不要加连接符（比如逗号）了
+//     if (i === arr.length - 1)
+//       connector = '';
+
+//     // 追加每一项到result上
+//     result += arr[i] + connector;
+//   }
+//     console.log(result);
+//   // 返回最终结果
+//   return result;
+// }
+    glue(list,',');
+</script>

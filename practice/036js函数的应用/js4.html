@@ -1,0 +1,74 @@
+<script>
+// function sum(list){
+//     let result=0;
+//     for(let i=0;i<list.length;i++){
+//         result+=list[i];
+//     }
+//     console.log(result);
+//     return result;
+// }
+// sum([1,2,4]);
+
+// function filterSum(list){
+//     let result=0;
+//     for(let i=0;i<list.length;i++){
+//         if(typeof list[i]=='number'){
+//             result+=list[i];
+//         }
+//     }
+//     console.log(result);
+//     return result;
+// }
+// filterSum([1,2,5,'yo',5]);
+// // --------------------
+// function filterGlue(list){
+//     let result='';
+//     for(let i=0;i<list.length;i++){
+//         if(typeof list[i]==='string'){
+//             result+=list[i];
+//         }
+//     }
+//     console.log(result);
+//     return filterSum;
+// }
+// filterGlue(['wo',1,2,'ai','ni']);
+// -----------------------
+// function sumEven(list){
+//     let result=0;
+//     for(let i=0;i<list.length;i++){
+//         if(list[i]%2){
+//             continue;
+//         }
+//         result+=list[i];
+//     }
+//     console.log(result);
+//     return result;
+// }
+// sumEven([1,2,3,4,5]);
+// ------------------------
+let list = [
+  'abb',
+  'bcc',
+  'cdd',
+  'daa',
+];
+function search(arr,point){
+    let resultStr='';
+    for(let i=0;i<arr.length;i++){
+        
+        if(arr[i].includes(point)){
+            if(i==arr.length-1){
+                resultStr+=arr[i];
+            }else{
+                resultStr+=arr[i]+',';
+            }
+            
+            
+        }
+    }
+    console.log(resultStr);
+    return resultStr;
+
+}
+search(list,'a');
+</script>
