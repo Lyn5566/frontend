@@ -27,8 +27,32 @@ function evenNumber(arr){
     return result;
 }
 
+function sumNumber(arr){
+    let sum = 0;
+    eachNumber(arr,(it) =>{
+       sum+=it; 
+    })
+    return sum;
+}
+
+//max number
+function max(arr){
+    let max = 0;
+    eachNumber(arr,(it) =>{
+        if(it>max)
+        max = it;
+    })
+    return max;
+}
+
+
+
 let oddList = oddNumber([1,2,3,4]);
 let evenList = evenNumber([2,3,4,5]);
+let sumList = sumNumber([1,2,3,4]);
+let maxNum = max([5,2,80,50]);
 console.log(oddList);
 console.log(evenList);
+console.log(sumList);
+console.log(maxNum);
 </script>
