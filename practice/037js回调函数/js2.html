@@ -1,0 +1,21 @@
+<script>
+//基礎関数
+function eachStr(arr,fn){
+    for(let i=0;i<arr.length;i++){
+        fn(arr[i]);
+    }
+}
+
+function getYo(arr){
+    let result=[];
+    eachStr(arr,(it) =>{
+        if(it.includes('yo')){
+            result.push(it);
+        }
+    })
+
+    return result;
+}
+let list = getYo(['wa','yo','Yoooo','yOoo','yowawa']);
+console.log(list);
+</script>
