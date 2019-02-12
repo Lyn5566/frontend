@@ -1,0 +1,39 @@
+<style>
+.board{
+    display: inline-block;
+    background: #000;
+    color: red;
+    padding: 10px;
+    opacity: 1;
+}
+[hidden]{
+    display: none !important;
+}
+</style>
+
+<div class="board">
+   <span class="inner"></span>
+</div>
+
+<script>
+let board = document.querySelector('.board');
+let inner = board.querySelector('.inner');
+let list = ['aa','bbb','cccc','ddddd'];
+let index = 0;
+inner.innerText=list[index];
+setInterval(() => {
+    let visible = getComputedStyle(inner).opacity=='1';
+    if(visible){
+        inner.style.opacity=0;
+    }else{
+        inner.style.opacity=1;
+        index++;
+        if(index>list.length-1){
+            index=0;
+        }
+        inner.innerText=list[index];
+
+    }
+}, 500);
+
+</script>

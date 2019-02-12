@@ -1,0 +1,27 @@
+<style>
+:root{
+    font-family: sans-serif;
+    font-size: 15px;
+    
+}
+.board{
+    background: #000;
+    color: red;
+    display:inline-block;
+    padding: 10px;
+    opacity: 1;
+    
+}
+</style>
+<div class="board">
+    <span class="inner">マッサージ、足裏</span>
+</div>
+<script>
+
+setInterval(() =>{
+    let board = document.querySelector('.board');
+let inner = board.querySelector('.inner');
+   let visible = getComputedStyle(inner).opacity =='1';
+   visible ? inner.style.opacity = 0 : inner.style.opacity = 1;
+},1000);
+</script>
