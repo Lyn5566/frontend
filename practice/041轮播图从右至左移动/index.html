@@ -1,0 +1,47 @@
+<style>
+:root{
+    font-family: sans-serif;
+    font-size: 13px;
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+[hidden]{
+    display: none !important;
+}
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+}
+.slider{
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    height: 290px   ;
+
+}
+.item{
+    position: absolute;
+    width: 100%;
+    display: block;
+    transition: all .5s;
+    
+}
+
+
+</style>
+
+<div class="container">
+    <div class="slider">
+        <div class="item" href="#">
+            <img src="./img/text-a.png" alt="a">
+        </div><div class="item" href="#">
+            <img src="./img/text-b.png" alt="b">
+        </div><div class="item" href="#">
+            <img src="./img/text-c.png" alt="c">
+        </div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
