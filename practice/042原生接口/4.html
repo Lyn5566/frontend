@@ -1,0 +1,32 @@
+
+<style>
+.blackboard{
+    font-size: 13px;
+    background: #000;
+    color: aliceblue;
+    width: 40%;
+    display: block;
+    
+}
+p{
+    font-weight: bolder;
+}
+[hidden]{
+    display: none !important;
+}
+</style>
+
+<div class="blackboard">
+<p>小黑板</p>
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque beatae commodi debitis ex illum ipsum labore minus quo sint, tempore. Aliquam atque cum cumque esse eum magni nostrum quasi vel!</div>
+</div>
+
+<script>
+    let board = document.querySelector('.blackboard');
+    window.addEventListener('keyup',(e) =>{
+        if(e.key ==='q' && e.ctrlKey){
+            board.hidden = !board.hidden;
+        }
+    })
+
+</script>

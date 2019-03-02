@@ -1,0 +1,46 @@
+
+<style>
+    .dropdown{
+        background: #666;
+        position: absolute;
+    }
+    .dropdown a{
+        display: block;
+        color:hotpink;
+        padding: 5px;
+
+    }
+    [hidden]{
+        display: none !important;
+
+    }
+
+</style>
+
+<button id="btn">查看更多</button>
+
+<div class="dropdown" hidden>
+    <a href="">11111</a>
+    <a href="">222</a>
+    <a href="">333333</a>
+    <a href="">4222</a>
+    <a href="">5444</a>
+</div>
+
+<script>
+    let btn = document.getElementById('btn');
+    let links = document.querySelector('.dropdown');
+
+    window.addEventListener('click',function(e){
+        let targetF = e.target;
+        if(targetF === btn){
+        links.hidden= !links.hidden;
+        return;
+        }
+
+        if(!targetF.closest('.dropdown')){
+                links.hidden = true;
+        }
+
+    })
+</script>

@@ -1,0 +1,42 @@
+<div class=""></div>
+<label>テキスト:</label>
+<input type="text" name="con">
+<button id="btn">クリック</button>
+<div class="">
+    <label>案件</label>
+    <input type="text" name="matter">
+</div>
+<div class="">
+    <label>会社名</label>
+    <input type="text" name="company">
+</div>
+<div class="">
+    <label>BIS名</label>
+    <input type="text" name="bis">
+</div>
+<div class="">
+    <label>枝番</label>
+    <input type="text" name="branch">
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+    $(function () {
+        $('#btn').click(function () {
+            let strs = $('input[name=con]').val();
+            let arr = strs.split('-');
+            let a = arr.shift();
+            let b = arr.shift();
+            let c = arr.shift();
+            let d = arr.shift();
+            $('input[name=matter]').val(a);
+            $('input[name=company]').val(b);
+            $('input[name=bis]').val(c);
+            $('input[name=branch]').val(d);
+            $('input[name=con]').empty();
+
+        })
+    })
+
+
+</script>
