@@ -1,0 +1,96 @@
+<style>
+    .popout {
+        border-radius: 3px;
+        padding: 10px;
+        display: inline-block;
+        position: fixed;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+        left: 34px;
+        top: 33px;
+
+    }
+
+    [hidden] {
+        display: none !important;
+    }
+</style>
+
+<div>
+    <button data-popout='Yoyoyo'>Yo</button>
+    <button data-popout='Hahaha'>Ha</button>
+
+</div>
+
+<script>
+    //每一次点击都存储到Set对象里，且不重复的
+    let triggers = new Set();
+    //只要不是第一次点击,记录按钮   最后一次点击
+    let lastTrigger;
+
+    boot();
+
+    function boot() {
+        document.addEventListener('click', e => {
+            //每一个按键上能取到的内容
+            let el = e.target;
+            console.log(el);
+            let content = el.dataset.popout;
+            if (content) {
+                //如果最后一次点击是lastTrigger，那么就隐藏它
+                lastTrigger && hide(lastTrigger);
+                //然后把当前点击存为最后一次点击
+                lastTrigger = el;
+                //显示对应的popup
+                show(el, content);
+                // 把最后一次的点击记录到triggers中
+                triggers.add(lastTrigger);
+            } else {
+                //如果点击位置没在 content的范围内，那么就隐藏所有
+                hideAll();
+            }
+
+        })
+
+        function hide(button) {
+            button.$popout.hidden = true;
+        }
+
+        /**
+            $popout:给按钮button对象添加一个与原生不相冲突的属性
+        */
+
+        function show(button, content) {
+            //如果点击后没有内容显示，那么就创建一个新元素
+            if (!button.$popout) {
+                let popout = document.createElement('div');
+                popout.classList.add('popout');
+                button.$popout = popout;
+                popout.innerText = content;
+                document.body.appendChild(popout);
+                //所显示内容的位置
+            } else {
+                //否则就直接显示
+                button.$popout.hidden = false;
+            }
+
+            rePosition(button);
+        }
+
+        function rePosition(btn) {
+            let p = btn.$popout;
+            //按钮的位置
+            let buttonPostiton = btn.getBoundingClientRect();
+            //把按钮作为相对位置 平移
+            p.style.left = buttonPostiton.left + 'px';
+            p.style.top = buttonPostiton.top + btn.offsetHight + 'px';
+        }
+
+        function hideAll() {
+            triggers.forEach(button => {
+                button.$popout.hidden = true;
+            })
+        }
+
+    }
+
+</script>
