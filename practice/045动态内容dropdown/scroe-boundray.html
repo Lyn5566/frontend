@@ -1,0 +1,109 @@
+<style>
+    :root {
+        font-family: sans-serif;
+
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: solid 1px;
+        padding: .05em;
+        text-align: left;
+    }
+</style>
+
+<div class="toolbar">
+    <div id="score-filter">
+        <button data-max="100" data-min="0">成績がすべて表示</button>
+        <button data-max="100" data-min="80">成績がいい人</button>
+        <button data-max="80" data-min="60">成績が普通の人</button>
+        <button data-max="60" data-min="0">成績がわるい人</button>
+    </div>
+</div>
+<table>
+    <thead>
+        <th>名前</th>
+        <th>性別</th>
+        <th>点数</th>
+        <th>操作</th>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+</table>
+
+<script>
+
+    let tbody = document.querySelector('#tbody');
+    let scoreFilter = document.querySelector('#score-filter');
+
+    let users = [
+        {
+            name: '伊藤さん',
+            gender: '男',
+            score: 90
+        }, {
+            name: '岡崎さん',
+            gender: '女',
+            score: 50
+        }, {
+            name: '中村さん',
+            gender: '男',
+            score: 70
+        }
+    ];
+
+    boot();
+
+    function boot() {
+
+        render();
+        bindEvents();
+    }
+
+    function render(range) {
+
+        tbody.innerHTML = '';
+        users.forEach((user, i) => {
+            if (range) {
+                let inRange =
+                    user.score < +range.max &&
+                    user.score > +range.min;
+                if (!inRange) {
+                    return;
+                }
+            }
+            let tr = document.createElement('tr');
+            tr.innerHTML = `
+        <td>${user.name}</td>
+        <td>${user.gender}</td>
+        <td>${user.score}</td>
+        <td><button class="btn">削除</button></td>
+        `;
+            let btn = tr.querySelector('.btn');
+            tbody.appendChild(tr);
+            btn.addEventListener('click', () => {
+                users.splice(i, 1);
+                tr.remove();
+            });
+
+        });
+    }
+
+    function bindEvents() {
+        scoreFilter.addEventListener('click', e => {
+
+            let target = e.target;
+            if (target.nodeName != 'BUTTON') {
+                return;
+            }
+            let range = target.dataset;
+            render(range);
+        });
+
+    }
+</script>

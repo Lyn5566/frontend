@@ -1,0 +1,36 @@
+
+<div id="dropdown" class="dropdown">
+
+</div>
+
+<script>
+
+    let dropdown = document.querySelector('#dropdown');
+let list = [
+    {
+        text:'a',
+        href :'www.baidu.com'
+    },
+    {
+        text:'b',
+        href :'www.qq.com'
+    },
+]
+boot ();
+
+function boot(){
+    render();
+    list.push({text:'e',href :'www.yahoo.co.jp'})
+    render();
+}
+
+function render(){
+    dropdown.innerHTML='';
+    list.forEach(it =>{
+      let a = document.createElement('div');
+      a.innerText = it.text;
+      a.href = it.href;
+      dropdown.appendChild(a);
+    })
+}
+</script>

@@ -1,0 +1,108 @@
+<style>
+    :root {
+        font-family: sans-serif;
+    }
+
+    th,
+    td {
+        border: solid 1px;
+        padding: .5em;
+
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+</style>
+
+<div id="toolbar">
+    <div class="score-filter">
+        <button data-max="100" data-min="0">查看全部</button>
+        <button data-max="100" data-min="80">只看学霸</button>
+        <button data-max="80" data-min="60">只看学酥</button>
+        <button data-max="60" data-min="0">只看学渣</button>
+    </div>
+</div>
+<table>
+    <thead>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>分数</th>
+        <th>操作</th>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+</table>
+<script>
+    let tbody = document.querySelector('#tbody');
+    let scoreFilter = document.querySelector('.score-filter');
+    let users = [
+
+        {
+            name: '木村',
+            gender: '男',
+            score: 90
+        }, {
+            name: '王',
+            gender: '女',
+            score: 80
+        }, {
+            name: '劉',
+            gender: '男',
+            score: 70
+        }, {
+            name: '李',
+            gender: '女',
+            score: 50
+        },
+    ];
+
+    boot();
+    function boot() {
+
+        render();
+        bindEvents();
+    }
+
+    function render(range) {
+        tbody.innerHTML = '';
+        users.forEach((user, i) => {
+        if(range){
+            let inRange = user.score<range.max&&
+            user.score>range.min;
+            if(!inRange)
+            return;
+        }
+            let tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td>${user.name}</td>
+            <td>${user.gender}</td>
+            <td>${user.score}</td>
+            <td><button class="del">删除</button></td>
+            `;
+            tbody.appendChild(tr);
+            let del = tr.querySelector('.del');
+            del.addEventListener('click', () => {
+                users.splice(i, 1);
+                tr.remove();
+            })
+        })
+    }
+
+
+    function bindEvents() {
+        scoreFilter.addEventListener('click', e => {
+            let target = e.target;
+            //取到每一个按钮以及内容
+            if(target.nodeName !='BUTTON'){
+                return;
+            }
+            let range = target.dataset;
+            
+            render(range);
+
+        })
+    }
+
+</script>

@@ -1,0 +1,82 @@
+<style>
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th,td{
+        text-align: left;
+        border: 1px solid;
+        padding: .5em;
+
+    }
+    .toolbar{
+        margin: .5em 0;
+    }
+
+</style>
+<div class="toolbar">
+    <div id="score-filter">
+        <button data-max="100" data-min="0">查看全部</button>
+        <button data-max="100" data-min="80">只看学霸</button>
+        <button data-max="80" data-min="60">只看学酥</button>
+        <button data-max="60" data-min="0">只看学渣</button>
+    </div>
+</div>
+
+<table>
+    <thead>
+    <th>姓名</th>
+    <th>性別</th>
+    <th>分数</th>
+    <th>操作</th>
+    </thead>
+    <tbody id ='tbody'></tbody>
+</table>
+
+<script>
+
+    let tbody = document.querySelector('#tbody');
+
+    let users = [
+        {name:'lucy',
+        gender:'女',
+        score:70
+        }, 
+         {name:'tom',
+        gender:'男',
+        score:80
+        }, 
+         {name:'mark',
+        gender:'男',
+        score:56
+        },
+
+    ]
+
+    boot();
+
+
+    function boot(){
+        bindEvents();
+    }
+
+
+    function bindEvents(){
+        users.forEach((user,i) =>{
+           let tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${user.name}</td>
+                <td>${user.gender}</td>
+                <td>${user.score}</td>
+                <td><button class='delBtn'>删除</button></td>
+            `;
+            let del = tr.querySelector('.delBtn');
+            tbody.appendChild(tr);
+            del.addEventListener('click',()=>{
+                users.splice(i,1);
+                
+                tr.remove();
+            });
+        });
+    }
+</script>
