@@ -86,6 +86,8 @@
             del.addEventListener('click', () => {
                 users.splice(i, 1);
                 tr.remove();
+                render();
+                console.log(users);
             })
         })
     }

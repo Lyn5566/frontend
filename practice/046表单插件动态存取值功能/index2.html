@@ -1,0 +1,174 @@
+<style>
+    :root {
+        font-size: 16px;
+    }
+
+    input,
+    button {
+        font-size: inherit;
+        padding: .2em .3em;
+        margin: .2em auto;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+        width: auto;
+    }
+</style>
+<!-- 
+<form id="a">
+    <input type="text" name="name" placeholder="姓名" value="王花花">
+    <input type="number" name="age" placeholder="年龄" value="18">
+    <input type="email" name="email" placeholder="邮箱" value="biaoyansu@gmail.com">
+    <input type="date" name="birthday" placeholder="生日" value="2018-01-02">
+    <input type="week" name="yo" value="1988-W20">
+
+    <div>
+        性别
+        <label>
+            男 <input type="radio" name="gender" value="male">
+        </label>
+        <label>
+            女 <input type="radio" name="gender" value="female" checked>
+        </label>
+    </div>
+    <div>
+        取向
+        <label>
+            男 <input type="checkbox" name="orientation" value="male" checked>
+        </label>
+        <label>
+            女 <input type="checkbox" name="orientation" value="female" checked>
+        </label>
+        <label>
+            车 <input type="checkbox" name="orientation" value="car" checked>
+        </label>
+    </div>
+    <input type="number" name="balance" placeholder="余额" value="10">
+    <input type="number" name="height" placeholder="身高" value="1">
+    <button type="submit">提交</button>
+</form> -->
+<form id="b">
+    <input type="text" name="name" placeholder="姓名">
+    <input type="number" name="age" placeholder="年龄">
+    <input type="email" name="email" placeholder="邮箱">
+    <input type="date" name="birthday" placeholder="生日">
+    <input type="week" name="yo">
+
+    <div>
+        性别
+        <label>
+            男 <input type="radio" name="gender" value='male'>
+        </label>
+        <label>
+            女 <input type="radio" name="gender" value='female'>
+        </label>
+    </div>
+    <div>
+        取向
+        <label>
+            男 <input type="checkbox" name="orientation" value='male'>
+        </label>
+        <label>
+            女 <input type="checkbox" name="orientation" value='female'>
+        </label>
+        <label>
+            车 <input type="checkbox" name="orientation" value='car'>
+        </label>
+    </div>
+    <input type="number" name="balance" placeholder="余额">
+    <input type="number" name="height" placeholder="身高">
+    <button type="submit">提交</button>
+</form>
+
+
+<script>
+
+    //解析数据
+
+    //存数据
+    function setData(data,form){
+        for(let key in data){
+            let val = data[key];
+            console.log(val);
+            let input = form.querySelector(`[name = ${key}]`);
+            switch(input.type){
+                case 'radio':
+                let radio = form.querySelector(`[type=radio][name=${key}][value=${val}]`);
+                
+                radio && (radio.checked = true);
+                break;
+                case 'checkbox':
+                val.forEach(it =>{
+                let checkbox = form.querySelector(`[type=checkbox][name=${key}][value=${it}]`);
+                   
+                checkbox && (checkbox.checked=true);
+                })
+                break;
+
+                default:
+            data[key] = input.value;
+
+            }
+
+        }
+    }
+
+    //取数据 get
+    function getData(form) {
+        let data = {};
+        let inputs = form.querySelectorAll('[name]');
+        inputs.forEach(it => {
+            switch (it.type) {
+                case 'number':
+                    data[it.name] = parseFloat(it.value);
+                    break;
+
+                case 'radio':
+                    if (!it.checked)
+                        return;
+                    data[it.name] = it.value;
+                    break;
+
+                case 'checkbox':
+                    if (!Array.isArray(data[it.name]))
+                        data[it.name] = [];
+
+                    if (it.checked)
+                        data[it.name].push(it.value);
+
+                    break;
+
+                case 'date':
+                data[it.name] = it.valueAsDate;
+                break;
+
+                default:
+                    data[it.name] = it.value;
+
+            }
+
+        });
+        return data;
+    }
+    // console.log(getData(document.getElementById('a')));
+    let user ={
+        name:'aaa',
+        age:18,
+        email:'www.liuchenglei@qq.com',
+        birthday:'1989-02-24',
+        yo:'1988-W20',
+        gender:'female',
+        orientation:['male','car'],
+        balance:10,
+        height:178
+        
+    }
+    
+    setData(user,document.getElementById('b'));
+
+</script>

@@ -1,0 +1,36 @@
+<style>
+input {
+    width:60%;
+    padding: .5em;
+}
+form{
+    margin: 2px;
+}
+
+</style>
+
+<form action="">
+    <input type="text" name='name' placeholder="名前">
+    <input type="text" name='gender' placeholder="性別">
+    <input type="text" name='age' placeholder="年齢">
+    <input type="text" name='height' placeholder="身長">
+</form>
+
+<script>
+let form = document.querySelector('form');
+
+let data = {
+    name:'王华华',
+    gender:'男',
+    age:18,
+    height:178
+}
+
+for(let key in data){
+
+    let input = form.querySelector(`[name = ${key}] `);
+    
+    input.value = data[key];
+    
+}
+</script>
