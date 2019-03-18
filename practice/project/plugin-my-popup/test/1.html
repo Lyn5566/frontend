@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../popup.css">
+
+<button id="trigger">收藏</button>
+<div id="popup">
+    <button id='top-center'>上中</button>
+    <button id='bottom-center'>下中</button>
+    <button id='top-left'>左上</button>
+    <button id='top-right'>右上</button>
+    <button id='left-center'>左中</button>
+    <button id='right-center'>右中</button>
+    <button id='bottom-left'>左下</button>
+    <button id='bottom-right'>右下</button>
+    <button id='center'>中</button>
+</div>
+<script src="../popup.js"></script>
+<script>
+myPopup.boot('#trigger', '#popup', {
+        //用户配置
+        position: 'center',
+        keyToHide: 'a',
+        offsetX: 100,
+        offsetY: 100
+
+    });
+</script>
