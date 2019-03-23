@@ -1,0 +1,84 @@
+<style>
+
+</style>
+
+<table id='myTable'>
+    <thead></thead>
+    <tbody></tbody>
+</table>
+
+
+<script>
+    ; (function () {
+
+        'use strict';
+
+        let table, thead, tbody, structure, list;
+
+
+        window.table = { boot };
+
+        function boot(tableSelector, struct, arr) {
+            table = document.querySelector(tableSelector);
+            thead = table.tHead;
+            tbody = table.tBodies[0];
+            structure = struct;
+            list = arr;
+            render();
+        }
+        function render() {
+            headRender();
+            bodyRender();
+        }
+        function headRender() {
+            thead.innerHTML = '';
+            let html = '';
+            for (let key in structure) {
+                html += `<th>${structure[key]}</th>`;
+            }
+            thead.innerHTML = html;
+
+        }
+        function bodyRender() {
+            tbody.innerHTML = '';
+            list.forEach(it => {
+                let tr = document.createElement('tr');
+                let html = '';
+                for (let key in structure)
+                    html += `<td>${it[key]||'-'}</td>`;
+            tr.innerHTML = html;
+            tbody.appendChild(tr);
+            });
+        }
+
+
+    })();
+
+        let struct = {
+            name: '姓名',
+            age: '年龄',
+            score: '分数'
+        };
+
+        let users = [
+            {
+                name: '秋葉原',
+                age: '20',
+                score: '90',
+            }, {
+                name: '田町',
+                age: '40',
+                score: '',
+            }, {
+                name: '品川',
+                age: '50',
+                score: '',
+            }
+
+        ]
+        table.boot('#myTable', struct, users);
+
+
+
+
+</script>
