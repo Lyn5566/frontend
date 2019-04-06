@@ -1,0 +1,18 @@
+:root {
+    font-family: sans-serif;
+
+}
+
+table {
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: solid 1px;
+    padding: 5px;
+}
+tr.active{
+    background: #fff000;
+}

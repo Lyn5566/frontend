@@ -1,0 +1,163 @@
+<style>
+    :root {
+        font-family: sans-serif;
+
+    }
+
+    main {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 40em;
+        margin-top: 1em;
+
+    }
+
+    input,
+    button {
+        border: solid 1px;
+        font-size: inherit;
+        padding: .5em;
+        width: 100%;
+        margin-bottom: .5em;
+    }
+
+    button {
+        background: #000;
+        color: #fff;
+    }
+
+    .error-container {
+        background: pink;
+        color: red;
+        padding: .5em;
+    }
+    input.error{
+        border: 1px solid #c10;
+
+    }
+
+    [hidden] {
+        display: none ;
+    }
+</style>
+<main>
+    <form action="" novalidate>
+        姓名<input type="text" name="username" placeholder="刘成磊" value="asd">
+        密码<input type="password" name="pwd" placeholder="abc123456" value="asdf123">
+        邮箱<input type="email" name="email" placeholder="1234qq@qq.com" value="asdf@gmail.com">
+        电话<input type="text" name="phone" placeholder="13888888889" value="1888889999">
+        <div class="error-container" hidden></div>
+        <button>提交</button>
+    </form>
+</main>
+
+<script src="js/validate.js"></script>
+<script>
+    ; (function () {
+        'use strict'
+
+        let form = document.querySelector('form');
+        let errorContainer = form.querySelector('.error-container');
+        let input = form.querySelectorAll('input');
+        let data = {};
+        //手机错误信息
+        let error = {
+            username: [],
+            password: [],
+            email: [],
+            phone: []
+
+        };
+
+        boot();
+
+        function boot() {
+            bindEvent();
+            keyInput();
+        }
+
+        function bindEvent() {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                data.username = form.querySelector('[name=username]').value;
+                data.password = form.querySelector('[name=pwd]').value;
+                data.email = form.querySelector('[name=email]').value;
+                data.phone = form.querySelector('[name=phone]').value;
+
+                (!validate(data)) ? showError() : hideError();
+            })
+
+        }
+        function keyInput(){
+            input.forEach(it =>{
+
+                it.addEventListener('keyup',e=>{
+                    if(e.key=='Enter'){
+                        return;
+                    }
+                    hideError();
+                    form.querySelectorAll('.error').forEach(itError =>{
+
+                        itError.classList.remove('error');
+                    })
+
+                })
+            })
+
+        }
+
+        function showError() {
+            errorContainer.hidden = false;
+            errorContainer.innerHTML = '';
+            for (let key in error) {
+                let item = error[key];
+                //错误时加一个error框
+                if(item.length)
+                  form.querySelector(`[name=${key}]`).classList.add('error');
+
+                item.forEach(it => {
+                    let errorDIV = document.createElement('div');
+                    errorDIV.innerText = it;
+                    errorContainer.appendChild(errorDIV);
+                });
+            }
+
+        }
+
+        function hideError() {
+            errorContainer.hidden = true;
+        }
+
+        function validate(data) {
+
+            let valid = true;
+            //重置错误信息
+             error = {
+                username: [],
+                password: [],
+                email: [],
+                phone: []
+
+            };
+            if (!vali.isUsername(data.username)) {
+                valid = false;
+                error.username.push('用户名输入有误');
+            }
+            if (!vali.isPassword(data.password)) {
+                valid = false;
+                error.password.push('密码输入有误');
+            }
+            if (!vali.isEmail(data.email)) {
+                valid = false;
+                error.email.push('邮箱输入有误');
+            }
+            if (!vali.isPhone(data.phone)) {
+                valid = false;
+                error.phone.push('电话输入有误');
+            }
+            return valid;
+        }
+
+
+    })();
+</script>

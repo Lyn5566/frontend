@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户表单</title>
+</head>
+<style>
+        :root {
+            font-family: sans-serif;
+            font-size: 15px;
+    
+        }
+    
+        main {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 40em;
+            margin-top: 1em;
+    
+        }
+    
+        input,
+        button {
+            border: solid 1px;
+            font-size: inherit;
+            padding: .5em;
+            margin-bottom: .5em;
+        }
+    
+        button {
+            background: #000;
+            color: #fff;
+
+        }
+        form input,
+        form button{
+           width: 100%;
+
+        }
+    
+        .error-container {
+            background: pink;
+            color: red;
+            padding: .5em;
+        }
+        input.error{
+            border: 1px solid #c10;
+    
+        }
+    
+        [hidden] {
+            display: none ;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,td{
+            border:solid 1px;
+            text-align: left;
+            
+        }
+        .text-right{
+            text-align: right;
+        }
+        [hidden]{
+            display: none !important;
+        }
+      
+    </style>
+
+<body>
+    <main>
+    <h2>添加用户</h2>
+    <form action="" id ='userForm'>
+        <input type="text" name='index' hidden>
+        <input type="text" name="username" placeholder="">
+        <input type="text" name="email" placeholder="">
+        <input type="text" name="balance" placeholder="">
+        <button type="submit">提交</button>
+    </form>
+    <table id='userTable'>
+    <thead>
+        <th>用户名</th>
+        <th>邮箱</th>
+        <th>余额</th>
+        <th>操作</th>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</main>
+
+</body>         
+</html>
+<script>
+;(function(){
+    'use strict'
+    let users =[
+        {
+            username:'aaa',
+            email:'aaa123@gmail.com',
+            balance:128
+        },   {
+            username:'bbb',
+            email:'bbb234@gmail.com',
+            balance:128
+        },   {
+            username:'ccc',
+            email:'ccc567@gmail.com',
+            balance:128
+        }
+    ];
+    let elForm = document.getElementById('userForm');
+    let elTable = document.getElementById('userTable');
+    let userBody = elTable.querySelector('tbody');
+    let userHead = elTable.querySelector('thead');
+    //更新时往inputs里放的数据
+    let inputs ={
+        index: elForm.querySelector('[name=index]'),
+        username:elForm.querySelector('[name=username]'),
+        email:elForm.querySelector('[name=email]'),
+        balance:elForm.querySelector('[name=balance]'),
+    }
+
+    boot();
+    function boot(){
+        bindSubmit();
+        render();    
+    }
+
+    //表单提交
+    function bindSubmit(){
+        elForm.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            //先选中index输入框里的值
+            let index = inputs.index.value;
+
+            let data = {};
+            //用户往4个input里填好的数据
+            data.username = elForm.querySelector('[name=username]').value;
+            data.email = elForm.querySelector('[name=email]').value;
+            data.balance = elForm.querySelector('[name=balance]').value;
+            //通过判断index是更新还是新规提交
+
+            if(index) {
+             users[index] =data;
+            }else{
+
+             users.push(data);
+            }
+            elForm.reset();
+            
+            render();           
+          
+        })
+    }
+    function render(){
+            userBody.innerHTML = '';
+        users.forEach((user,index) =>{
+            //如果用户不存在就返回
+            if(!user)
+            return;
+
+            let tr = document.createElement('tr');
+            tr.innerHTML=`
+            <td>${user.username}</td>
+            <td>${user.email}</td>
+            <td>${user.balance}</td>
+            <td class ='operation text-right'>
+           <button class ="update">更新</button>
+           <button class ="delete">削除</button>
+            </td>
+            `;
+
+         tr.querySelector('.operation').addEventListener('click',e =>{
+
+             let klass = e.target.classList;
+             if(klass.contains('update')){
+                 
+                inputs.index.value = index;
+                inputs.username.value = user.username;
+                inputs.email.value = user.email;
+                inputs.balance.value = user.balance;
+             }
+            else (klass.contains('delete'))
+            tr.querySelector('.delete').addEventListener('click',e=>{
+                user[index] = null;
+                tr.remove(); 
+              
+            })
+         })
+            userBody.appendChild(tr);
+            
+          
+        })
+
+        
+    }
+})();
+</script>

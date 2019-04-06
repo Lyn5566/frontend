@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <main>
+        <h2>添加用户</h2>
+        <form action="" id='userForm'>
+            <input type="text" name='index' hidden>
+            <input type="text" name="username" placeholder="" value='wasdf'>
+            <input type="text" name="email" placeholder="" value='asf123@qq.com'>
+            <input type="text" name="balance" placeholder="" value='121212'>
+            <button type="submit">提交</button>
+        </form>
+        <table id='userTable'>
+            <thead>
+                <th>用户名</th>
+                <th>邮箱</th>
+                <th>余额</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+    <script src ="./lib/myForm.js"></script>
+    <script src="./lib/myTable.js"></script>
+    <script src ="./js/main.js"></script>
+</body>
+
+</html>
