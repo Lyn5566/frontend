@@ -1,0 +1,72 @@
+:root {
+    font-family: sans-serif;
+    font-size: 15px;
+
+}
+
+main {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40em;
+    margin-top: 1em;
+
+}
+
+input,
+button {
+    border: solid 1px;
+    font-size: inherit;
+    padding: .5em;
+    margin-bottom: .5em;
+}
+
+button {
+    background: #000;
+    color: #fff;
+
+}
+form button{
+   
+        background: #000;
+        color: aliceblue;
+    
+}
+form input,
+form button{
+   width: 100%;
+
+}
+
+.error-container {
+    background: pink;
+    color: red;
+    padding: .5em;
+}
+input.error{
+    border: 1px solid #c10;
+
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th,td{
+    border:solid 1px;
+    text-align: left;
+    
+}
+.text-right{
+    text-align: right;
+}
+[hidden]{
+    display: none !important;
+}
+.error{
+    color: red;
+    margin: .2em,0;
+}
+[disabled]{
+    opacity: 0.4;
+    cursor:not-allowed;
+}

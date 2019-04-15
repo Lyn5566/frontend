@@ -4,6 +4,7 @@
 
     let mf;
     let mt;
+    let el;
     let form = document.querySelector('#userForm');
     let struct ={
         username:'用户名',
@@ -26,6 +27,7 @@
     
     boot();
     function boot(){
+        valid.boot('#userForm');
         parseForm();
         parseTable();
 
@@ -47,6 +49,8 @@
                 
                 mf.setData(list[i]);
                 form.querySelector('[name=index]') .value= i;
+                //el.$submit = form.querySelector('[type=submit]');
+                // el.$submit.disabled = false;
                 
             }
         };

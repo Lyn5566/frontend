@@ -30,4 +30,12 @@ button{
     background: #000;
     color: aliceblue;
 }
+.error{
+    color: red;
+    margin: .2em,0;
+}
+[disabled]{
+    opacity: 0.4;
+    cursor:not-allowed;
+}
 

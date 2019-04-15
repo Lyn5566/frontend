@@ -318,7 +318,6 @@
       // 当表单提交时
       form.addEventListener('submit', e => {
         e.preventDefault();
-  
         // 验证整个表单的数据
         validateForm(form);
       });
@@ -456,5 +455,5 @@
   |--------------------------------------------------------------------------
   */
   
-  valee.boot('form');
-  valee.boot('#search');
+  //valee.boot('form');
+  //valee.boot('#search');
