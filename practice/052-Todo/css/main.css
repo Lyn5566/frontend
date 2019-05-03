@@ -1,0 +1,101 @@
+
+:root{
+    background: #eee;
+}
+
+#todo-form,.todo-item {
+    font-size: 0;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, .2);
+    margin-right: -23px;
+    margin-left: 1px;
+
+}
+
+.todo-item > * {
+    font-size:12px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: .5em;
+   
+}
+.todo-item > .check{
+   width: 10%;
+}
+.todo-item > .title{
+    width: 50%;
+}
+.todo-item > .operations{
+   width: 30%;
+    text-align: right;
+}
+form,.todo-item{
+    margin-bottom: .5rem;
+}
+.sidebar{
+    font-size: .8em;
+    padding: 0 .2em;
+    color: #222;
+
+}
+.sidebar button{
+    display: block;
+    width: 100%;
+}
+.sidebar > * :hover{
+    cursor: pointer;
+    margin-bottom: .2em;
+    color: #222;
+    background: rgba(0,0,0,.2);
+}
+.sidebar > .active{
+    background:#c1a7ff;
+    border-radius: 3px;
+    color: #fff;
+}
+.container-sm > .left{
+    width:20%;
+}
+.container-sm > .right{
+    width: 80%;
+}
+#add-form button{
+    width: 50%;
+    float: left;
+}
+button.primary {
+    background:#c1a7ff;
+    color:#fff;
+}
+#cat-list > .item .operations{
+    display: none;
+    font-size: .6rem;
+}
+#cat-list > .item:hover .operations{
+    display: inline-block;
+}
+#cat-list button{
+    font-size: inherit;
+    
+}
+#cat-list .item{
+    position: relative;
+}
+#cat-list .operations{
+    right:0;
+    display: none;
+    font-size: .5rem;
+    position: absolute;
+}
+#cat-list .operations button {
+    border: 0;
+    background: transparent;
+    padding: .1em;
+    color: #aaa;
+  }
+  #cat-list .operations button:hover {
+    color: #222;
+  }
+  #cat-list > .item:hover .operations {
+    display: inline-block;
+  }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>代办事项</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <h1 style="text-align: center">代办清单</h1>
+    <div class="container-sm">
+        <div class="left">
+            <div class="sidebar" id ="cat-list">
+                <!-- <div class="item">学习</div>
+                <div class="item active">生活</div> -->
+            </div>
+            <div class="sidebar">
+                <button id ="add-cat">+</button>
+            </div>
+                <form id ="add-form" class="sidebar" hidden>
+                    <input type="search" name="name">
+                    <div class="btn-group">
+                        <button type="submit" class="primary">确定</button>
+                        <button type="button" class="cancel">取消</button>
+                    </div>
+                </form>
+        </div>
+        <div class="right">
+            <form id='todo-form'>
+                <input type="text" name="title" autofocus>
+                <button type="submit" hidden></button>
+            </form>
+            <div id="todo-list">
+                <!-- <div class="todo-item">
+                <div class="check">
+                    <input type="checkbox" name="" id="">
+                </div>
+                <div class="title">买菜</div>
+                <div class="operations">
+                    <button>更新</button>
+                    <button>削除</button>
+                </div>
+            </div> -->
+            </div>
+        </div>
+    </div>
+    <script src="api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/todo.js"></script>
+</body>
+
+</html>
