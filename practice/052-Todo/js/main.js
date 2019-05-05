@@ -184,7 +184,8 @@
         api('todo/read', params, r => {
             $todoList = r.data || [];
             renderTodo();
-            todoForm.reset();
+           // todoForm.reset();
+            notify();
         })
     }
     function bindTodoSubmit() {
@@ -294,6 +295,24 @@
             }
         }
 
+    }
+    //提醒
+    function notify(){
+        let nowTime = Date.now();
+       
+        $todoList.forEach(it =>{
+            let recordTime =new Date(it.notifi_at);
+            //console.log(recordTime.getTime());
+            let then = recordTime.getTime();
+            if(!then)
+            return;
+
+            if(then- nowTime >=10*60*1000)
+              return;
+
+            console.log(it.title);
+        })
+        
     }
 
 

@@ -1,0 +1,36 @@
+
+.my-container-class{
+    font-family: sans-serif;
+    position: fixed;
+    right:1em;
+    top:1em;
+}
+.my-alert{
+  margin-bottom: .2em;
+}
+
+.my-alert.warn .inner{
+    background: orange;
+}
+.my-alert.info .inner{
+    background: rgb(8, 83, 196);
+}
+.my-alert.dranger .inner{
+    background: rgb(235, 57, 13);
+}
+.my-alert.success .inner{
+    background: rgb(11, 233, 59);
+}
+.my-alert .inner{
+    color: aliceblue;
+    background: #777;
+    border-radius: .2em;
+    cursor:pointer;
+}
+.my-alert .inner > *{
+    padding: .2em .8em;
+}
+
+.inner .title{
+    font-weight: bold;
+}
