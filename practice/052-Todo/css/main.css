@@ -3,7 +3,7 @@
     background: #eee;
 }
 
-#todo-form,.todo-item {
+.todo-item {
     font-size: 0;
     background: #fff;
     box-shadow: rgba(0, 0, 0, .2);
@@ -13,7 +13,7 @@
 }
 
 .todo-item > * {
-    font-size:12px;
+    font-size:1rem;
     display: inline-block;
     vertical-align: middle;
     padding: .5em;
@@ -32,33 +32,13 @@
 form,.todo-item{
     margin-bottom: .5rem;
 }
-.sidebar{
-    font-size: .8em;
-    padding: 0 .2em;
-    color: #222;
 
-}
-.sidebar button{
-    display: block;
-    width: 100%;
-}
-.sidebar > * :hover{
-    cursor: pointer;
-    margin-bottom: .2em;
-    color: #222;
-    background: rgba(0,0,0,.2);
-}
-.sidebar > .active{
-    background:#c1a7ff;
-    border-radius: 3px;
-    color: #fff;
-}
-.container-sm > .left{
+/* .container-sm > .left{
     width:20%;
 }
 .container-sm > .right{
     width: 80%;
-}
+} */
 #add-form button{
     width: 50%;
     float: left;
@@ -67,13 +47,7 @@ button.primary {
     background:#c1a7ff;
     color:#fff;
 }
-#cat-list > .item .operations{
-    display: none;
-    font-size: .6rem;
-}
-#cat-list > .item:hover .operations{
-    display: inline-block;
-}
+
 #cat-list button{
     font-size: inherit;
     
@@ -87,7 +61,10 @@ button.primary {
     font-size: .5rem;
     position: absolute;
 }
-#cat-list .operations button {
+#cat-list > .item:hover .operations{
+    display: inline-block;
+}
+#cat-list > .item .operations button {
     border: 0;
     background: transparent;
     padding: .1em;
@@ -96,6 +73,6 @@ button.primary {
   #cat-list .operations button:hover {
     color: #222;
   }
-  #cat-list > .item:hover .operations {
+  /* #cat-list > .item:hover .operations {
     display: inline-block;
-  }
+  } */

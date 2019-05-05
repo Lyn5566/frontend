@@ -14,37 +14,41 @@
     <h1 style="text-align: center">代办清单</h1>
     <div class="container-sm">
         <div class="left">
-            <div class="sidebar" id ="cat-list">
+            <div class="sidebar" id="cat-list">
                 <!-- <div class="item">学习</div>
                 <div class="item active">生活</div> -->
             </div>
             <div class="sidebar">
-                <button id ="add-cat">+</button>
+                <button id="add-cat">+</button>
             </div>
-                <form id ="add-form" class="sidebar" hidden>
-                    <input type="search" name="name">
-                    <div class="btn-group">
-                        <button type="submit" class="primary">确定</button>
-                        <button type="button" class="cancel">取消</button>
-                    </div>
-                </form>
+            <form id="add-form" class="sidebar" hidden>
+                <input type="search" name="name">
+                <button type="submit" class="primary">确定</button>
+                <button type="button" class="cancel">取消</button>
+            </form>
         </div>
         <div class="right">
             <form id='todo-form'>
                 <input type="text" name="title" autofocus>
-                <button type="submit" hidden></button>
+                <div id="more-trigger">展开</div>
+                <div id="more" hidden>
+                    <label>
+                        <span class ="title">提醒时间</span>
+                        <span class="control">
+                            <input type="date" name="notifyDate">
+                            <input type="time" name="notifyTime">
+                        </span>
+                    </label>
+                    <label>
+                        <span class="title">描述</span>
+                        <span class="control">
+                        <textarea name="todoDesc"></textarea>
+                        </span>
+                    </label>
+                    <button type="submit" hidden></button>
+                </div>
             </form>
             <div id="todo-list">
-                <!-- <div class="todo-item">
-                <div class="check">
-                    <input type="checkbox" name="" id="">
-                </div>
-                <div class="title">买菜</div>
-                <div class="operations">
-                    <button>更新</button>
-                    <button>削除</button>
-                </div>
-            </div> -->
             </div>
         </div>
     </div>

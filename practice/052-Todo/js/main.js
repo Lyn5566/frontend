@@ -4,13 +4,18 @@
     let todoForm = document.getElementById('todo-form');
     let todoInput = todoForm.querySelector('[name=title]');
     let todoList = document.getElementById('todo-list');
-    let catForm = document.getElementById('add-form');
+    let notifyDate = todoForm.querySelector('[name=notifyDate]');
+    let notifyTime = todoForm.querySelector('[name=notifyTime]');
+    let todoDesc = todoForm.querySelector('[name=todoDesc]');
+    let more = document.getElementById('more');
+    let moreTrigger = document.getElementById('more-trigger');
 
+    let catForm = document.getElementById('add-form');
     let catInput = catForm.querySelector('[name=name]');
     let addCat = document.getElementById('add-cat');
     let catList = document.getElementById('cat-list');
 
-    let $todoList = [];
+    let $todoList;
     let $catList;
     //当前todo里更新的id
     let currentTodoId = null;
@@ -18,7 +23,7 @@
     let currentCatId = null;
 
     let $currentCatId = null;
-    
+
 
     boot();
     function boot() {
@@ -32,7 +37,28 @@
         bindToggleCatForm();
         bindClickCatForm();
         bindCatSubmit();
+        bindClickTodoForm();
 
+    }
+
+    function bindClickTodoForm() {
+        todoForm.addEventListener('click', e => {
+            let target = e.target;
+            if (target === moreTrigger) {
+                toggleMore();
+            }
+        })
+    }
+    function toggleMore() {
+        setMoreVisible(more.hidden);
+    }
+
+    function setMoreVisible(visible) {
+        more.hidden = !visible;
+        if (more.hidden)
+            moreTrigger.innerText = '展开';
+        else
+            moreTrigger.innerText = '收起';
     }
 
     function setCatFormVisible(visible = true) {
@@ -69,8 +95,8 @@
             let name = catInput.value;
             if (currentCatId) {
                 updateCat(currentCatId, { name });
-            
-            }else{
+
+            } else {
 
                 createCat({ name });
             }
@@ -79,6 +105,11 @@
     function readCat() {
         api('cat/read', null, r => {
             $catList = r.data || [];
+            $catList.unshift({
+                id: 'null',
+                name: '默认',
+            })
+            highlightCurrentCat();
             renderCat();
         })
     }
@@ -87,7 +118,7 @@
         api('cat/create', row, r => {
             if (r.success)
                 readCat();
-                setCatFormVisible(false);
+            setCatFormVisible(false);
         })
     }
 
@@ -115,11 +146,11 @@
             item.classList.add('item');
             item.innerHTML = `
             <span class ="name">${it.name}</span>
+            <span></span>
             <span class ="operations">
-           <button class ="fill">更新</button>
-           <button class ="delete">削除</button>
-            </span>
-            `;
+            <button class="fill">更新</button>
+            <button class="delete">删除</button>
+            </span>`;
             catList.appendChild(item);
             item.addEventListener('click', e => {
                 let klass = e.target;
@@ -132,7 +163,7 @@
                     catInput.value = it.name;
 
                 }
-                if(klass.classList.contains('name')){
+                if (klass.classList.contains('name')) {
                     $currentCatId = it.id;
                     highlightCurrentCat();
                     readTodo();
@@ -145,8 +176,8 @@
 
         params = params || {};
         params.where = {
-            and:{
-                cat_id:$currentCatId,
+            and: {
+                cat_id: $currentCatId,
             }
         }
         //默认post提交
@@ -159,14 +190,33 @@
     function bindTodoSubmit() {
         todoForm.addEventListener('submit', e => {
             e.preventDefault();
-            let title = todoInput.value
-            //$list.title = val;
+            let row = {
+                title : todoInput.value,
+                desc : todoDesc.value,
+            };
+            if(notifyDate.value&&notifyTime.value)
+            row.notifi_at = notifyDate.value+' '+normalize(notifyTime.value);
+
+           //console.log(row);
+          
+            if(!row.title)
+            return;
+                   
             if (currentTodoId)
-                updateTodo(currentTodoId, { title });
+                updateTodo(currentTodoId, row);
 
             else
-                createTodo({ title });
+                createTodo(row);
         })
+    }
+
+    function normalize(time){
+        if(!time)
+        return;
+
+        if(time.length<=5)
+        return time += ':00';
+        return time;
     }
     function createTodo(row) {
         row.cat_id = $currentCatId;
@@ -185,7 +235,7 @@
         });
     }
     function updateTodo(id, row) {
-        api('todo/update', { id, ...row }, r => {
+        api('todo/update', { id,...row }, r => {
             if (r.success) {
                 currentTodoId = null;
                 readTodo();
@@ -196,9 +246,6 @@
 
     function renderTodo() {
         todoList.innerHTML = '';
-        if ($todoList == null)
-            return;
-
         $todoList.forEach(it => {
             let item = document.createElement('div');
             item.classList.add('todo-item');
@@ -207,7 +254,7 @@
             </div>
             <div class="title">${it.title}</div>
             <div class="operations">
-                <button class="update">更新</button>
+                <button class="fill">更新</button>
                 <button class="delete">削除</button>
             </div>`;
             let checkbox = item.querySelector('.completed');
@@ -217,9 +264,17 @@
                 let target = e.target;
                 if (target.classList.contains('delete'))
                     removeTodo(it.id);
-                if (target.classList.contains('update')) {
-                    todoInput.value = it.title;
+                if (target.classList.contains('fill')) {
+                    if(it.notifi_at){
+                        let dateArr = it.notifi_at.split(' ');
+                        notifyDate.value = dateArr[0];
+                        notifyTime.value = dateArr[1];
+
+                    }
                     currentTodoId = it.id;
+                    todoInput.value = it.title;
+                    todoDesc.value = it.desc;
+                    setMoreVisible(true);
                 }
             });
             checkbox.addEventListener('change', e => {
@@ -228,17 +283,18 @@
             todoList.appendChild(item);
         })
     }
-    function highlightCurrentCat(){
+    function highlightCurrentCat() {
         let items = catList.children;
-        for(let i = 0;i<items.length;i++){
+        for (let i = 0; i < items.length; i++) {
             let catItem = items[i];
-            if($currentCatId == catItem.$id){
+            if ($currentCatId == catItem.$id) {
                 catItem.classList.add('active');
-            }else{
+            } else {
                 catItem.classList.remove('active');
             }
         }
 
     }
+
 
 })();
