@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="myAlert.css">
 <script src="myAlert.js"></script>
+<script src="../052-Todo/lib/myAlertoop.js"></script>
 
 <body>
 
@@ -11,15 +12,36 @@
     </div> -->
 
     <script>
-          myAlert('Yo', {
-            desc: 'sss',
-            type: 'info',
-
+        let a = new Alert('oopTodo');
+        let c = new Alert('oop',{
+            desc:'oop任务提醒',
+            type:'success',
+            timeout:false,
+            onOpen(){
+                console.log('C打开');
+            },
+            onClick(config){
+            document.body.appendChild(config.item);
+            console.log(config);
+            },
+            onClose(){
+                console.log('C关闭');
+            }
         });
-        myAlert('充值提醒', {
+      
+        let b = new Alert('充值提醒oop',{
             desc: '余额不足，请尽快充值',
-            type: 'success',
-
+            type: 'warn',
+            onClose(){
+                console.log('b关闭');
+            }
         });
+        setTimeout($ =>{
+            c.onOpen();
+        },3000);
+     
+        console.log(a);
+        console.log(b);
+        console.log(c);
     </script>
 </body>

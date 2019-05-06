@@ -1,7 +1,7 @@
 ;(function(){
     'use strict';
 
-    window.myAlert = myAlert;
+    window.myAlert = boot;
     let container;
     const defaultConfig = {
         
@@ -12,7 +12,7 @@
         
     }
 
-    function myAlert(title,config){
+    function boot(title,config){
         //合并设置
     config = {...defaultConfig,...config,title};
 

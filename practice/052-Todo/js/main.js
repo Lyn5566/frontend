@@ -311,6 +311,7 @@
               return;
 
             console.log(it.title);
+           myAlert(it.title);
         })
         
     }
