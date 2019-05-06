@@ -8,7 +8,7 @@
     <title>代办事项</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="lib/myAlert.css">
+    <link rel="stylesheet" href="css/myAlert.css">
 </head>
 
 <body>
@@ -30,24 +30,30 @@
         </div>
         <div class="right">
             <form id='todo-form'>
-                <input type="text" name="title" autofocus>
-                <div id="more-trigger">展开</div>
-                <div id="more" hidden>
-                    <label>
-                        <span class ="title">提醒时间</span>
-                        <span class="control">
-                            <input type="date" name="notifyDate">
-                            <input type="time" name="notifyTime">
-                        </span>
-                    </label>
-                    <label>
-                        <span class="title">描述</span>
-                        <span class="control">
-                        <textarea name="todoDesc"></textarea>
-                        </span>
-                    </label>
-                    <button type="submit" hidden></button>
-                </div>
+                <fieldset>
+                    <input type="text" name="title" autofocus>
+                    <div id="more-trigger">展开</div>
+                    <div id="more" hidden>
+                        <label>
+                            <span class="title">提醒时间<button class="small" id="currentTime"
+                                    type="button">当前时间</button></span>
+                            <span class="control row">
+                                <input class="col" type="date" name="notifyDate">
+                                <input class="col" type="time" name="notifyTime">
+                            </span>
+                        </label>
+                        <label>
+                            <span class="title">描述</span>
+                            <span class="control">
+                                <textarea name="todoDesc"></textarea>
+                            </span>
+                        </label>
+                        <label>
+                            <button type="submit" class="primary">提交</button>
+                        </label>
+                        <video src="audio/notify.mp3" hidden id="sound"></video>
+                    </div>
+                </fieldset>
             </form>
             <div id="todo-list">
             </div>
@@ -55,6 +61,7 @@
     </div>
     <script src="lib/api.js"></script>
     <script src="lib/myAlert.js"></script>
+    <script src="lib/myAlertoop.js"></script>
     <script src="js/main.js"></script>
     <script src="js/todo.js"></script>
 </body>

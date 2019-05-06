@@ -7,8 +7,7 @@
     font-size: 0;
     background: #fff;
     box-shadow: rgba(0, 0, 0, .2);
-    margin-right: -23px;
-    margin-left: 1px;
+   
 
 }
 
@@ -42,10 +41,12 @@ form,.todo-item{
 #add-form button{
     width: 50%;
     float: left;
+    
 }
 button.primary {
     background:#c1a7ff;
     color:#fff;
+    
 }
 
 #cat-list button{

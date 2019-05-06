@@ -4,16 +4,22 @@
     let todoForm = document.getElementById('todo-form');
     let todoInput = todoForm.querySelector('[name=title]');
     let todoList = document.getElementById('todo-list');
+    let fieldset = todoForm.querySelector('fieldset');
     let notifyDate = todoForm.querySelector('[name=notifyDate]');
     let notifyTime = todoForm.querySelector('[name=notifyTime]');
     let todoDesc = todoForm.querySelector('[name=todoDesc]');
     let more = document.getElementById('more');
     let moreTrigger = document.getElementById('more-trigger');
+    let currentTime = document.getElementById('currentTime');
+
 
     let catForm = document.getElementById('add-form');
     let catInput = catForm.querySelector('[name=name]');
     let addCat = document.getElementById('add-cat');
     let catList = document.getElementById('cat-list');
+
+    let sound = document.getElementById('sound');
+
 
     let $todoList;
     let $catList;
@@ -23,6 +29,9 @@
     let currentCatId = null;
 
     let $currentCatId = null;
+
+    //计时器
+    let timer;
 
 
     boot();
@@ -46,6 +55,9 @@
             let target = e.target;
             if (target === moreTrigger) {
                 toggleMore();
+            }
+            if(target === currentTime){
+                prepareDate();
             }
         })
     }
@@ -123,6 +135,9 @@
     }
 
     function removeCat(id) {
+        if(!confirm('确认要删除吗'))
+        return;
+
         api('cat/delete', { id }, r => {
             readCat();
         });
@@ -197,12 +212,12 @@
             };
             if(notifyDate.value&&notifyTime.value)
             row.notifi_at = notifyDate.value+' '+normalize(notifyTime.value);
-
-           //console.log(row);
           
             if(!row.title)
             return;
-                   
+            
+            fieldset.disabled = true;
+            
             if (currentTodoId)
                 updateTodo(currentTodoId, row);
 
@@ -219,11 +234,19 @@
         return time += ':00';
         return time;
     }
+
+    function resetForm(){
+        todoForm.reset();
+    }
+
     function createTodo(row) {
         row.cat_id = $currentCatId;
         api('todo/create', row, r => {
             if (r.success)
-                readTodo();
+            readTodo();
+            resetForm();
+            more.hidden = true;  
+            fieldset.disabled = false;
         });
     }
 
@@ -231,6 +254,8 @@
         api('todo/update', { id, completed })
     }
     function removeTodo(id) {
+        if(!confirm('确认要删除吗'))
+        return;
         api('todo/delete', { id }, r => {
             readTodo();
         });
@@ -240,7 +265,10 @@
             if (r.success) {
                 currentTodoId = null;
                 readTodo();
-                todoForm.reset();
+                resetForm();
+                more.hidden = true;                
+            fieldset.disabled = false;
+
             }
         })
     }
@@ -267,6 +295,7 @@
                     removeTodo(it.id);
                 if (target.classList.contains('fill')) {
                     if(it.notifi_at){
+                        console.log(it.notifi_at);
                         let dateArr = it.notifi_at.split(' ');
                         notifyDate.value = dateArr[0];
                         notifyTime.value = dateArr[1];
@@ -298,22 +327,57 @@
     }
     //提醒
     function notify(){
-        let nowTime = Date.now();
-       
-        $todoList.forEach(it =>{
-            let recordTime =new Date(it.notifi_at);
-            //console.log(recordTime.getTime());
-            let then = recordTime.getTime();
-            if(!then)
-            return;
-
-            if(then- nowTime >=10*60*1000)
-              return;
-
-            console.log(it.title);
-           myAlert(it.title);
-        })
+        if(timer)
+        return;
         
+       timer = setInterval($ =>{
+            let nowTime = Date.now();
+
+            $todoList.forEach(it =>{
+                //console.log(it.notifi_at);
+                let recordTime =new Date(it.notifi_at);
+                //console.log(recordTime.getTime());
+                let then = recordTime.getTime();
+                //console.log(then);
+    
+                //如果没设置提醒时间或者已完成或者已提醒过 都返回
+                if(!then || it.completed || it.notified)
+                return;
+                //如果距离提醒时间超过10分钟以上就不提醒，说明没到点
+                if(nowTime < then - 10 * 60 * 1000)
+                return;
+                
+                //console.log(it.title);
+               new Alert(it.title);
+               playSound();
+    
+               it.notified = true;
+               updateTodo(it.id,it);
+            })
+
+        },1000)
+        
+    }
+
+    function prepareDate(){
+        let d = new Date;
+        let date = d.toLocaleDateString().split('/');
+
+        notifyDate.value = date[0]+'-'+pad(date[1])+'-'+pad(date[2]);
+        let time = d.toLocaleTimeString();
+        let t = time.split(':');
+        notifyTime.value = t[0]+':'+t[1];
+
+    }
+    function pad(number){
+        if(number<10)
+        return '0'+number;
+
+        return number;
+    }
+
+    function playSound(){
+        sound.play();
     }
 
 
