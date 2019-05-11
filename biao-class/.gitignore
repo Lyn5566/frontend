@@ -1,3 +1,7 @@
+.DS_Stroe
+.vscode/
+.idea/
 node_modules/
 biao-class3/
-.DS_Store
+
+
