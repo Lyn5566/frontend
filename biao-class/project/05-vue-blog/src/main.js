@@ -4,13 +4,12 @@ import VueRouter from 'vue-router'
 import Home from './page/Home.vue'
 import Admin from './page/Admin.vue'
 import Post from './page/Post.vue'
-
 import AdminPost from './page/AdminPost.vue'
 
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
-
+  
 const routeConfig = [
   {
     path:'/',
@@ -35,6 +34,7 @@ const routeConfig = [
 new Vue({
   render: h => h(App),
    router : new VueRouter({
+     mode:'history',
     routes:routeConfig,
   })
 }).$mount('#app')

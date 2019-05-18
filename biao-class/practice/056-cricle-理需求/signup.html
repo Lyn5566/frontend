@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册页面</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/auth.css">
+    <link rel="stylesheet" href="./css/nav.css">
+</head>
+
+<body>
+    <div class="row nav">
+        <div class="container">
+            <div class="col col-12 left">
+                <div class="col-8 logo">
+                    <img src="http://dummyimage.com/100x100" alt="">
+                </div>
+                <div class="col-16 search">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="col-12 right text-right">
+                <a href="#">首页</a>
+                <a href="#">注册</a>
+                <a href="#">登录</a>
+                <a href="#">刘成磊</a>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <form id="submitForm">
+                <label>
+                    <div class="filed">用户名</div>
+                    <input type="text" id="username">
+                </label>
+                <label>
+                    <div class="filed">密码</div>
+                    <input type="password" id="password">
+                    <div class="filed">再次输入密码</div>
+                    <input type="password" name="" id="repassword">
+                </label>
+                <button type="submit">提交注册</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+
+    <script src="./js/api.js"></script>
+    <script src="./js/session.js"></script>
+    <script>
+    boot();
+
+    function boot(){
+        submitForm.addEventListener('submit',e =>{
+            e.preventDefault();
+            let uName = username.value;
+            let row = {
+                username:uName,
+                password:password.value,
+            }
+            let param = {
+                where:{and :
+                {
+                    username:uName,
+                }}
+            }
+            api('user/exists',param,
+            r =>{
+                if(r.data){
+
+                    alert('用户名已存在');
+                    return ;
+                }
+                else if(!row.username || !row.password){
+                    alert('用户名不能为空');
+                    return ;
+                } 
+                signup(row);  
+            })
+        })
+    }
+
+    function signup(row){
+        api('user/create',row,
+        r =>{
+            if(r.success)
+            alert('注册成功');
+            location.href = 'https://www.yahoo.co.jp';
+        })
+    }
+    
+    </script>
+</body>
+
+</html>

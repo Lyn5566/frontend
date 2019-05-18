@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/auth.css">
+    <link rel="stylesheet" href="./css/nav.css">
+</head>
+
+<body>
+    <div class="row nav">
+        <div class="container">
+            <div class="col col-12 left">
+                <div class="col-8 logo">
+                    <img src="http://dummyimage.com/100x100" alt="">
+                </div>
+                <div class="col-16 search">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="col-12 right text-right">
+                <a href="#">首页</a>
+                <a href="#">注册</a>
+                <a href="#">登录</a>
+                <a href="#">刘成磊</a>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <form id="loginForm">
+                <label>
+                    <div class="filed">用户名</div>
+                    <input type="text" id="username">
+                </label>
+                <label>
+                    <div class="filed">密码</div>
+                    <input type="password" id="password">
+                </label>
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+    <script src="./js/api.js"></script>
+    <script src="./js/session.js"></script>
+
+    <script>
+        boot();
+
+        function boot(){       
+            loginForm.addEventListener('submit', e=>{
+                e.preventDefault();
+                let user = {
+                    username:username.value,
+                    password:password.value,
+                }
+                if(!user.username || !user.password){
+                    alert('请输入用户名或密码')
+                    return ;
+                }
+                login(user);
+            })   
+        }
+        function login(row){
+            params = {
+                where:{
+                    and:row,
+                }
+            };
+            api('user/first',params, 
+            r =>{
+                let user = r.data;
+                if(!user){
+                    alert('用户名或密码有误');
+                    return ;
+                }
+                alert('登录成功');
+                onSumitSuccess(user);
+            })
+        }
+  
+    
+        function onSumitSuccess(user){
+            if(user){
+                localStorage.setItem('session',user.id);
+                location.href = '/Users/chenglliu/frontend/biao-class/practice/056-cricle-理需求/home.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -43,9 +43,7 @@ import "../css/admin.css";
 export default {
   data() {
     return {
-      current: {
-      
-      },
+      current: {},
       list :[],
       
     };
@@ -59,14 +57,16 @@ export default {
         let action = this.current.id ? "update" : "create";
         
           api(`post/${action}`, this.current).then(r =>{
-          if(r.success)
-          
+          if(r.success)          
             this.read();
             this.resetForm();
           });
     },
     //删除
     remove(id){
+      if(!confirm('确实要删除吗'))
+      return;
+
       api('post/delete',{id})
       .then(r =>{
           if(r.success)
