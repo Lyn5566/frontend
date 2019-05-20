@@ -11,13 +11,13 @@
         </div>
         <div class="col-12 right text-right">
           <router-link to="/">首页</router-link>
-          <div id="logAndReg">
+          <div v-if="!session.isLogin()">
             <router-link to="/signup">注册</router-link>
             <router-link to="/login">登录</router-link>
           </div>
-          <div id="inAndOut">
-            <a href="#" id="loginName"></a>
-            <a href="#" onclick="logout()">登出</a>
+          <div v-else>
+            <a href="#" id="loginName">{{session.userData().username}}</a>
+            <a href="#" @click="session.logout()">登出</a>
           </div>
         </div>
       </div>
@@ -25,12 +25,14 @@
 </template>
 <script>
 import logo from '../image/logo.png'
-
+import session from '../lib/session'
 export default {
 
   data(){
     return {
       logo,
+      session,
+      
     }
   }
 };

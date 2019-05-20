@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from './page/Home.vue'
 import Login from './page/Login.vue'
 import Signup from './page/Signup.vue'
+import Setting from './page/Setting.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -20,6 +21,10 @@ const routerConfig =
   {
     path: '/signup',
     component: Signup,
+  },  
+  {
+    path: '/setting',
+    component: Setting,
   },
 
 ] 
