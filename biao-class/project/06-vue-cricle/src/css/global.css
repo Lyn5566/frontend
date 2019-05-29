@@ -3,9 +3,12 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
  }
+ body,form{
+     margin: 0;
+ }
+
 body{
     font-family: sans-serif;
-    font-size: 13px;
     line-height: 1.6;
     color: #444;
     background:  #f0f0f0;;
@@ -172,21 +175,24 @@ img{
 .text-right{
     text-align: right;
 }
-input,button {
+.btn, input, button, textarea {
     font-size: 1em;
     padding: .5rem;
-    /* border:solid 1px rgba(0, 0, 0, .2); */   
-    border:solid 1px; 
+    /*border: 1px solid rgba(0, 0, 0, 0.1)*/
+    border: 2px solid;
+    color: inherit;
+  }
+  .btn, button {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+  }
 
-}
-    input{
-    outline: none;
-    color: #444;
-    width: 170px;
-    height: 30px;
-    line-height: 16px;   
-}
-form input,
+form input,form textarea,
 form [type=submit]{
     width: 100%;
 }
@@ -197,6 +203,8 @@ form [type=submit]{
 }
 
 .card{
+
+    overflow: atuo;
     background: #fff;
     margin-bottom: 10px;
 }
@@ -231,6 +239,47 @@ form [type=submit]{
 
 [hidden]{
     display: none !important;
+}
+.setting-content dt,
+.setting-content dd{
+    display: inline-block;
+    margin: 0;
+}
+.setting-content dt{
+    margin-right: .5em;
+}
+
+dl{
+    margin: .4rem 0;
+    display: flex;
+}
+dl [readonly]{
+    border: 0;
+    padding: 0;
+    outline: 0;
+}
+
+dl .field{
+    width: auto;
+    display: inline-block;
+}
+
+dt::after{
+    margin-right:10px;
+    content: ":";
+}
+
+
+dd{
+    flex: 1;
+    float: left;
+}
+fieldset{
+    border: 0;
+    margin: 0;
+}
+[disabled]{
+    opacity: .5;
 }
 
 

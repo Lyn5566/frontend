@@ -13,10 +13,6 @@ function login(user,id,redirect="/"){
 
     location.href=redirect;
 }
-//返回 解析JSON字符串的数据
-function userData(){
-    return store.get('user');
-}
 
 function logout(){
     localStorage.removeItem('sessionId');
@@ -24,6 +20,10 @@ function logout(){
     location.href="/";
 }
 
+//返回一个user对象， 解析JSON字符串的数据 
+function userData(){
+    return store.get('user');
+}
 //是否已经登录
 function isLogin(){
     return localStorage.getItem('sessionId');

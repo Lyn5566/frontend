@@ -1,6 +1,6 @@
 
  import axios from 'axios'
-
+window.api = api;
 let appKey = 'd60f7aa49bc31c242ecaba19308ff706aa2ada25564cee0a787e22b416459dbe';
 let timestamp = Date.now();
 let baseUrl   = 'https://mock.biaoyansu.com/api/1/';

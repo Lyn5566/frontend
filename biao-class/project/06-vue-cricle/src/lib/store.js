@@ -11,7 +11,6 @@ function get(key){
     return JSON.parse(json);
 }
 
-
 export default {
     set,
     get,
