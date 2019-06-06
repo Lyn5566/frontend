@@ -28,6 +28,9 @@ function userData(){
 function isLogin(){
     return localStorage.getItem('sessionId');
 }
+function isAdmin(){
+    return userData().IS_ADMIN;
+}
 
 export default {
     userData,
@@ -35,5 +38,6 @@ export default {
     logout,
     $user,
     isLogin,
+    isAdmin,
 
 }

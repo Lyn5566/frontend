@@ -53,6 +53,12 @@ export default {
   },
   methods: {
     threadSubmit() {
+      if(!session.isLogin){
+
+        alert('请登录后执行')
+        return ;
+      }
+
       let form = this.threadForm;
       if (!form.title) {
         this.error.title = true;
@@ -92,8 +98,8 @@ export default {
         if (r.success) {
           if (!confirm("确实要删除吗")) return;
 
-          alert("删除成功");
           this.threadRead();
+          alert("删除成功");
         }
       });
     }

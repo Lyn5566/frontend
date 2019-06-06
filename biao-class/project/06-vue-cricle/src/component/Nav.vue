@@ -16,7 +16,7 @@
             <router-link to="/login">登录</router-link>
           </div>
           <div v-else>
-            <router-link to="/setting" id="loginName">{{session.userData().nickname}}</router-link>
+            <router-link to="/setting" id="loginName">{{user.nickname || user.username}}</router-link>
             <a href="#" @click="session.logout()">登出</a>
           </div>
         </div>
@@ -32,6 +32,7 @@ export default {
     return {
       logo,
       session,
+      user :session.userData(),
       
     }
   }

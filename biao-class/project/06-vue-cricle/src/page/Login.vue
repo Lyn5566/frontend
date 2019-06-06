@@ -38,6 +38,11 @@ export default {
           username:null,
           password:null,
         },
+        //定义管理员登录用户名和密码
+        admin :{
+          username : 'admin',
+          password : 'admin123'
+        },
         error:{
             loginNoSuccess : false,
             msg:'用户名或密码不正确',
@@ -45,7 +50,21 @@ export default {
     };
   },
   methods:{
+    isAdmin(){
+      let c = this.current;
+      let admin = this.admin;
+      if(c.username !== admin.username || c.password !== admin.password)
+            return false;
+
+           return true;
+    },
       login(){
+        if(this.isAdmin()){
+          let user = {...this.current};
+          user.IS_ADMIN = true;
+          session.login(user,user.id,'/admin/user');
+          return ;
+        }
           let username = this.current.username;
           let password = this.current.password;
         if(!username || !password)
