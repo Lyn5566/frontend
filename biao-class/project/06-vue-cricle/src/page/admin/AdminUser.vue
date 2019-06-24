@@ -2,34 +2,40 @@
   <div class="container">
     <h2>个人管理</h2>
     <div class="showBtn">
-      <button @click="ui.formShow = !ui.formShow">编辑</button>
+      <button @click="toggleForm">编辑</button>
     </div>
-    <form @submit.prevent="createOrUpdate" v-if="ui.formShow">
+    <form @submit.prevent="createOrUpdate()" v-if="ui.formShow">
       <div class="input-control">
         <label>
           昵称
-          <input type="text" v-model="userForm.nickname">
-          <div class="error" v-for="e in errors.name" :key="e.id">{{formRules.name[e].msg}}</div>
+          <input type="text" v-model="form.nickname" @change="debounceValide('nickname')">
+          <span class="error-list" v-for="(invalid,index) in errors.nickname" :key="index">
+            <span class="error" v-if="invalid">{{rules.nickname[index].msg}}</span>
+          </span>
         </label>
       </div>
       <div class="input-control">
         <label>
           用户名
-          <input type="text" v-model="userForm.username">
-          <div class="error" v-for="e in errors.username" :key="e.id">{{formRules.username[e].msg}}</div>
+          <input type="text" v-model="form.username" @change="debounceValide('username')">
+          <span class="error-list" v-for="(invalid,index) in errors.username" :key="index">
+            <span class="error" v-if="invalid">{{rules.username[index].msg}}</span>
+          </span>
         </label>
-        
       </div>
-      <!-- <div class="input-control">
+      <div class="input-control">
         <label>
           密码
-          <input type="text" v-model="userForm.password">
+          <input type="password" v-model="form.password" @change="debounceValide('password')">
+          <span class="error-list" v-for="(invalid,index) in errors.password" :key="index">
+            <span class="error" v-if="invalid">{{rules.password[index].msg}}</span>
+          </span>
         </label>
-      </div> -->
+      </div>
       <div class="input-control">
         <label>
           签名
-          <input type="text" v-model="userForm.intro">
+          <input type="text" v-model="form.intro">
         </label>
       </div>
       <div class="input-control">
@@ -40,146 +46,79 @@
       <thead>
         <th>昵称</th>
         <th>用户名</th>
+        <th>密码</th>
         <th>签名</th>
         <th>操作</th>
       </thead>
       <tbody>
-        <tr v-for="it in userList" :key="it.id">
+        <tr v-for="it in list" :key="it.id">
           <td>{{it.nickname}}</td>
           <td>{{it.username}}</td>
+          <td>{{it.password}}</td>
           <td>{{it.intro}}</td>
           <td>
             <div class="btn-group">
-              <button @click="fill(it)">更新</button>
+              <button @click="fillAndShow(it)">更新</button>
               <button @click="remove(it.id)">删除</button>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
+    <Pagination :totalCount="totalCount" :limit="pageParams.limit" :onChange="turnPage"/>
   </div>
 </template>
 
 
 <script>
-import api from "../../lib/api";
-import valee from '../../lib/valee'
+
+import admin from '../../mixin/admin'
 export default {
-  data() {
-    return {
-      userForm: {},
-      userList: [],
-      ui: {
-        formShow: true
-      },
-      formRules :{
-        username :{
-          unique :{
-            params : ['user/exists'],
-            msg :'用户名已存在',
+    mixins :[admin],
+    data(){
+      return {
+        model : 'user',
+        rules: {
+         username: {
+          unique: {
+            params: ['user', 'exists', 'username'],
+            msg: "用户名已存在"
           },
-          betweenLength :{
-            params : [4,12],
-            msg : '长度不能小于4且不能大于12位',
-           } ,           
-          regx : 
-          {
-           params : [/[0-9a-zA-z]+/],
-           msg : '用户名不合法',
+          required: {
+            msg: "用户名为必填项"
+          },
+          lengthBetween: {
+            params: [4, 12],
+            msg: "长度不能小于4且不能大于12位"
+          },
+          regex: {
+            params: [/^[a-zA-Z]+[0-9]*$/],
+            msg: "用户名不合法"
           }
         },
-        name :{
-            required :{
-              
-              msg :'用户名不能为空',
-          },
-          betweenLength :{
-            params : [4,12],
-            msg : '长度不能小于4且不能大于12位',
-           } , 
+        nickname: {
+          // lengthBetween: {
+          //   params: [4, 12],
+          //   msg: "长度不能小于4且不能大于12位"
+          // }
         },
-
+        password: {
+          required: {
+            msg: "密码为必填项"
+          },
+          lengthBetween: {
+            params: [6, 24],
+            msg: "密码长度需在6位24位之间"
+          },
+          regex: {
+            params: [/(?=[^0-9]*[0-9]+)(?=[^a-zA-Z]*[a-zA-Z]+)/],
+            msg: "密码必须包含字母和数字"
+          }
+        },
       },
-      errors :{
-        //错误信息的key
-        username :[
-          'unique',
-          'betweenLength',
-          'regx',
-          
-        ],
-        name :[
-          'required',
-          'betweenLength',
-        ]
-      },
-    };
-  },
-  mounted() {
-    this.read();
-  },
-  methods: {
-    //field => 'username' 'password' 相当于要验证的属性
-    //key => 相当于betweenLength ,unique
-      validate(field){
-        //拿到所有的验证规则
-        let rules = this.formRules[field];
-        for(let key in rules){
-
-          let rule = rules[key];
-          //调用valee里对应的验证函数
-          //相当于 valee.betweenLength('liuchenglei',4,12);
-          // ...rule 相当于把一个数组展开 [1,2,3]=>(1,2,3)
-          // valid 返回的是 true或者false
-            let valid = valee[key](this.userForm[field],...rule);
-            //拿到对应的错误对象
-            let fieldObj = this.errors[field];
-            //如果错误对象不存在，就初始化一个新对象
-            if(!fieldObj)
-            // Vue.set(obj, key, value);
-            //this.$set(this.errors,field,{}) 相当于 this.errors.filed = {}
-            fieldObj = this.$set(this.errors,field,{});
-            //将对象中对应的验证规则设为valee返回的结果
-            //如：field[betweenLength] = true ;
-            fieldObj[key] = !valid;
-        }
-
-      },
-    read() {
-      api("user/read").then(r => {
-        if (r.success) this.userList = r.data;
-      });
+      }
     },
-    hideForm(){
-      this.ui.formShow = false;
-      this.form = {};
-    },
-    showForm(){
-      this.ui.formShow = true;
-    },
-    createOrUpdate() {
-      let action = "user/create";
-      if (this.userForm.id) action = "user/update";
-
-      api(action, this.userForm).then(r => {
-        if (r.success) this.resetForm();
-        this.read();
-      });
-    },
-    resetForm() {
-      this.userForm = {};
-    },
-    remove(id) {
-      if (!confirm("确实要删除吗")) return;
-      api("user/delete", { id }).then(r => {
-        if (r.success) this.read();
-      });
-    },
-    fill(updateData) {
-      this.userForm = updateData;
-    }
-  }
-};
+}
 </script>
 
 <style scoped>

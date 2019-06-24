@@ -3,6 +3,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import Home from './page/Home.vue'
 import Thread from './page/Thread.vue'
+import About from './page/About.vue'
 import Login from './page/Login.vue'
 import Signup from './page/Signup.vue'
 import Setting from './page/Setting.vue'
@@ -11,6 +12,7 @@ import SettingSecurity from './page/SettingSecurity.vue'
 import AdminBase from './page/admin/AdminBase.vue'
 import AdminUser from './page/admin/AdminUser.vue'
 import AdminThread from './page/admin/AdminThread.vue'
+import AdminCat from './page/admin/AdminCat.vue'
 import session from './lib/session';
 
 Vue.config.productionTip = false
@@ -48,6 +50,10 @@ const routerConfig =
       ]
     },
     {
+        path:'/about',
+        component:About,
+    },
+    {
       path: '/admin',
       component: AdminBase,
       children: [
@@ -58,6 +64,9 @@ const routerConfig =
         {
           path: 'thread',
           component: AdminThread,
+        },        {
+          path: 'cat',
+          component: AdminCat,
         }
       ]
     },

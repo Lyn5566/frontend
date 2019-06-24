@@ -16,7 +16,11 @@
         </router-link>
         <div class="content">{{it.content}}</div>
         <div class="others small">
-        <span class="name"><strong>{{it.$user ? (it.$user.nickname || it.$user.username) : '已注销'}}</strong></span>
+        <!-- <span class="name"><strong>{{it.$user ? (it.$user.nickname || it.$user.username) : '已注销'}}</strong></span> -->
+        <span class="name"><strong v-if="it.$user">{{it.$user.nickname || it.$user.username}}</strong>
+        <!-- <strong v-else-if="it.$user && it.$user.nickname=='admin'">管理员</strong> -->
+        <strong v-else>已注销</strong>
+        </span>
         <span class="create-time">{{it.create_at}}</span>
         </div>
         <div class="row" v-if="user && it.$user && (it.$user.id === user.id)">
@@ -29,17 +33,29 @@
         </div>
       </div>
     </div>
+    <div>
+      <ScrollLoad :page="1" @flip="onFlip"/>
+    </div>
   </div>
 </template>
 <script>
 import api from "../lib/api";
 import dateformat from "../lib/dateformat";
 import session from "../lib/session";
+import ScrollLoad from "../component/ScrollLoad";
 export default {
+  components:{
+    ScrollLoad,
+  },
   data() {
     return {
       threadForm: {},
       formList: [],
+      threadParams: { 
+        limit:3,
+         with: ["belongs_to:user", "belongs_to:cat"]       
+       },
+
       error: {
         title: false,
         content: false
@@ -52,6 +68,11 @@ export default {
     this.threadRead();
   },
   methods: {
+    //滚动翻页
+    onFlip(page){
+      this.threadParams.page = page;
+      this.threadRead();
+    },
     threadSubmit() {
       if(!session.isLogin){
 
@@ -85,9 +106,12 @@ export default {
       });
     },
     threadRead() {
-      api("thread/read", { with: ["belongs_to:user", "belongs_to:cat"] })
+      api("thread/read",
+          this.threadParams
+       )
       .then(r => {
-          if (r.success) this.formList = r.data;
+          if (r.success) 
+          this.formList = [...this.formList,...r.data];
           // console.log(r.data);
         }
       );

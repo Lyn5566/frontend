@@ -5,6 +5,7 @@
                 <div class="col-6 vertical-nav" >
                     <router-link to="/admin/user">用户管理</router-link>
                     <router-link to="/admin/thread">帖子管理</router-link>
+                    <router-link to="/admin/cat">分类管理</router-link>
                 </div>
                 <div class="col-18">
                     <div class="setting-content">
